@@ -66,9 +66,6 @@ To compile the tracker with maximum optimization (`-O3`), run the following comm
 g++ -O3 -std=c++17 ACT_Arbitrary_Precision_Tracker.cpp -lgmpxx -lgmp -o act_tracker
 
 ### Execution
-​Once compiled, initiate the engine to start testing ECF boundaries or searching for AACC counter-examples:
-
-### Execution
 Once compiled, initiate the engine to start testing ECF boundaries or searching for AACC counter-examples:
 
 ```bash
