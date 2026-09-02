@@ -12,13 +12,11 @@ Unlike highly specialized mathematical conjectures, the classic 3x+1 problem exh
 
 This project uncovers the deterministic "hidden variables" governing Collatz dynamics by exposing a profound mathematical paradox: **the hybridization of the 3x+1 and 3x-1 operators.**
 
-## 2. Chiral Non-Commutativity & Symmetry Breaking
-
-Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope from the modulo-2 baseline to a modulo-4 Extended Collatz Function (ECF), a startling topological reality emerges. In our ECF framework, the odd parity space is bifurcated into two operative engines: N1*x + p1 for x ≡ 1 (mod 4), and N2*x + p2 for x ≡ 3 (mod 4).
-
-While the symmetric baselines—such as ECF(3x+1, 3x+1) and ECF(3x-1, 3x-1)—deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results. The specific configuration ECF(3x-1, 3x+1) triggers **absolute divergence**. Strikingly, merely swapping the modular assignments to ECF(3x+1, 3x-1) violently restores **absolute convergence**. 
-
-This empirical reality, where ECF(A, B) ≠ ECF(B, A), rigorously proves the existence of **chiral non-commutativity** and exposes a fundamental **chiral symmetry breaking** phenomenon within discrete dynamical systems.
+## 2. ​Chiral Non-Commutativity & Symmetry Breaking
+​Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope from the modulo-2 baseline to a modulo-4 Extended Collatz Function (ECF), a startling topological reality emerges. In our ECF framework, the odd parity space is bifurcated into two operative engines: N1x + p1 for x ≡ 1 (mod 4), and N2x + p2 for x ≡ 3 (mod 4).
+​While the symmetric baselines—such as ECF(3x+1, 3x+1) and ECF(3x-1, 3x-1)—deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results. The specific configuration ECF(3x-1, 3x+1) triggers absolute divergence. Strikingly, merely swapping the modular assignments to ECF(3x+1, 3x-1) violently restores absolute convergence.
+​Even more dramatically, consider high-multiplier systems where the individual components independently undergo absolute divergence (such as standard 7x+1 or 9x+1 mappings). When hybridized into an asymmetric ECF, the cross-chiral interaction achieves the impossible: ECF(7x+1, 9x+1) forcibly collapses into absolute convergence, whereas swapping them back to ECF(9x+1, 7x+1) maintains absolute divergence.
+​This empirical reality, where ECF(A, B) ≠ ECF(B, A), rigorously proves the existence of chiral non-commutativity and exposes a fundamental chiral symmetry breaking phenomenon within discrete dynamical systems.
 
 ## 3. The Universal Topological Invariant (Δ')
 
@@ -50,7 +48,7 @@ If a valid counter-example is found, the determinism of the ACT framework is bro
 
 ## ⚙️ Repository Structure & Usage
 
-* `skynet_tracker.cpp` - The core C++ source code for the **ACT Arbitrary Precision Tracker**.
+* `ACT_Arbitrary_Precision_Tracker.cpp` - The core C++ source code for the **ACT Arbitrary Precision Tracker**.
 * `README.md` - Theoretical overview and AACC challenge instructions.
 
 ### System Requirements
