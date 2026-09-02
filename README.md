@@ -1,4 +1,5 @@
 # Arithmetic Chiral Topodynamics (ACT): Decoding the Extended Collatz Dynamics
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21996041.svg)](https://doi.org/10.5281/zenodo.21996041)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![C++](https://img.shields.io/badge/C++-Arbitrary_Precision-blue.svg)]()
