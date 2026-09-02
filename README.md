@@ -63,12 +63,15 @@ If a valid counter-example is found, the determinism of the ACT framework is bro
 To compile the tracker with maximum optimization (`-O3`), run the following command in your terminal:
 
 ```bash
-g++ -O3 -std=c++17 skynet_tracker.cpp -lgmpxx -lgmp -o skynet
-```
+g++ -O3 -std=c++17 ACT_Arbitrary_Precision_Tracker.cpp -lgmpxx -lgmp -o act_tracker
+
+### Execution
+​Once compiled, initiate the engine to start testing ECF boundaries or searching for AACC counter-examples:
 
 ### Execution
 Once compiled, initiate the engine to start testing ECF boundaries or searching for AACC counter-examples:
 
 ```bash
-./skynet
+./act_tracker
+
 ```
