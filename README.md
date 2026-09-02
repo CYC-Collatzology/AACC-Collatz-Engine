@@ -8,28 +8,31 @@ Welcome to the official repository for the **Arithmetic Chiral Topodynamics (ACT
 
 ## 1. The Paradigm Shift in Discrete Dynamics
 
-Unlike highly specialized mathematical conjectures, the classic $3x+1$ problem exhibits widespread interdisciplinary popularity, captivating researchers across physics, computer science, and complex systems. Despite this massive cross-disciplinary interest, the global scientific community has remained largely powerless against its extreme nonlinear complexity. Historically, this conjecture and generalized affine mappings ($N x+p$) have been deeply entrenched as intractable, chaotic, path-dependent operations plagued by theoretical undecidability. 
+Unlike highly specialized mathematical conjectures, the classic 3x+1 problem exhibits widespread interdisciplinary popularity, captivating researchers across physics, computer science, and complex systems. Despite this massive cross-disciplinary interest, the global scientific community has remained largely powerless against its extreme nonlinear complexity. Historically, this conjecture and generalized affine mappings (Nx+p) have been deeply entrenched as intractable, chaotic, path-dependent operations plagued by theoretical undecidability. 
 
-This project uncovers the deterministic "hidden variables" governing Collatz dynamics by exposing a profound mathematical paradox: **the hybridization of the $3x+1$ and $3x-1$ operators.**
+This project uncovers the deterministic "hidden variables" governing Collatz dynamics by exposing a profound mathematical paradox: **the hybridization of the 3x+1 and 3x-1 operators.**
 
 ## 2. Chiral Non-Commutativity & Symmetry Breaking
 
-Individually, both the $3x+1$ and $3x-1$ systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope from the modulo-2 baseline to a modulo-4 Extended Collatz Function (ECF), a startling topological reality emerges. In our ECF framework, the odd parity space is bifurcated into two operative engines: $N_1 x+p_1$ for $x \equiv 1 \pmod 4$, and $N_2 x+p_2$ for $x \equiv 3 \pmod 4$.
+Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope from the modulo-2 baseline to a modulo-4 Extended Collatz Function (ECF), a startling topological reality emerges. In our ECF framework, the odd parity space is bifurcated into two operative engines: N1*x + p1 for x ≡ 1 (mod 4), and N2*x + p2 for x ≡ 3 (mod 4).
 
-While the symmetric baselines—such as $\text{ECF}(3x+1, 3x+1)$ and $\text{ECF}(3x-1, 3x-1)$—deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results. The specific configuration $\text{ECF}(3x-1, 3x+1)$ triggers **absolute divergence**. Strikingly, merely swapping the modular assignments to $\text{ECF}(3x+1, 3x-1)$ violently restores **absolute convergence**. 
+While the symmetric baselines—such as ECF(3x+1, 3x+1) and ECF(3x-1, 3x-1)—deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results. The specific configuration ECF(3x-1, 3x+1) triggers **absolute divergence**. Strikingly, merely swapping the modular assignments to ECF(3x+1, 3x-1) violently restores **absolute convergence**. 
 
-This empirical reality, where $\text{ECF}(A, B) \neq \text{ECF}(B, A)$, rigorously proves the existence of **chiral non-commutativity** and exposes a fundamental **chiral symmetry breaking** phenomenon within discrete dynamical systems.
+This empirical reality, where ECF(A, B) ≠ ECF(B, A), rigorously proves the existence of **chiral non-commutativity** and exposes a fundamental **chiral symmetry breaking** phenomenon within discrete dynamical systems.
 
-## 3. The Universal Topological Invariant ($\Delta'$)
+## 3. The Universal Topological Invariant (Δ')
 
-To formalize this topological mechanism, we derive a universal topological invariant, the **Net Drift Discriminant ($\Delta'$)**. For any standard symmetric system (exact $N_1 = N_2$ and $p_1 = p_2$, such as $Nx+p$), the macroscopic invariant is rigidly locked at:
-$$ \Delta' = \frac{\ln N}{\ln 2} - 2 $$
-Under this precise discriminant, the classic $3x+1$ yields $\Delta' = \frac{\ln 3}{\ln 2} - 2 \approx -0.415 < 0$, effectively demystifying it as an absolute convergence event with no particularity.
+To formalize this topological mechanism, we derive a universal topological invariant, the **Net Drift Discriminant (Δ')**. For any standard symmetric system (exact N1 = N2 and p1 = p2, such as Nx+p), the macroscopic invariant is rigidly locked at:
+
+Δ' = (ln N / ln 2) - 2
+
+Under this precise discriminant, the classic 3x+1 yields Δ' = (ln 3 / ln 2) - 2 ≈ -0.415 < 0, effectively demystifying it as an absolute convergence event with no particularity.
 
 For generalized asymmetric ECF systems, the topological framework expands into a unified discriminant:
-$$ \Delta' = \frac{\ln \sqrt{N_1 N_2}}{\ln 2} - \rho \quad (\text{where the quantized Lattice Gravity } \rho \in \{1, 2, 3\}) $$
 
-Operating entirely *a priori*, this $\Delta'$ serves as the absolute physical boundary that governs the macroscopic destiny of any generalized Collatz dynamical system.
+Δ' = [ln√(N1 * N2) / ln 2] - ρ   (where the quantized Lattice Gravity ρ ∈ {1, 2, 3})
+
+Operating entirely *a priori*, this Δ' serves as the absolute physical boundary that governs the macroscopic destiny of any generalized Collatz dynamical system.
 
 ---
 
@@ -38,10 +41,10 @@ Operating entirely *a priori*, this $\Delta'$ serves as the absolute physical bo
 We fully acknowledge that proposing a strictly deterministic "hidden variable" within a system historically defined by pseudorandom chaos is highly counterintuitive. Therefore, we invite the global scientific and hacker communities to test the absolute predictive power of this framework.
 
 We propose the **Absolute Asymptotic Convergence Condition (AACC)**:
-> **Any system with $\Delta' < 0$ MUST universally collapse into absolute convergence (a periodic loop).**
+> **Any system with Δ' < 0 MUST universally collapse into absolute convergence (a periodic loop).**
 
 **The Challenge:** 
-Using the provided C++ arbitrary-precision engines (or your own code), find a single generalized ECF configuration and a starting seed $x_0$ such that $\Delta' < 0$, but the trajectory diverges to infinity or violates the deterministic lattice gravity bounds. 
+Using the provided C++ arbitrary-precision engines (or your own code), find a single generalized ECF configuration and a starting seed x0 such that Δ' < 0, but the trajectory diverges to infinity or violates the deterministic lattice gravity bounds. 
 
 If a valid counter-example is found, the determinism of the ACT framework is broken. So far, extensive arbitrary-precision empirical evidence strictly supports the AACC without a single exception.
 
