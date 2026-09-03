@@ -5,7 +5,7 @@
 Welcome to the official repository for the **Arithmetic Chiral Topodynamics (ACT)** framework and the arbitrary-precision C++ engines used to simulate the Extended Collatz Function (ECF).
 
 ## 1. The Paradigm Shift in Discrete Dynamics
-Unlike highly specialized mathematical conjectures, the classic $3x+1$ problem exhibits widespread interdisciplinary popularity, captivating researchers across physics, computer science, and complex systems. Despite this cross-disciplinary interest, the global scientific community has remained largely powerless against its extreme nonlinear complexity. Historically, generalized affine mappings (Nx+p) have been deeply entrenched as intractable, chaotic, path-dependent operations plagued by theoretical undecidability.
+Unlike highly specialized mathematical conjectures, the classic 3x+1 problem exhibits widespread interdisciplinary popularity, captivating researchers across physics, computer science, and complex systems. Despite this cross-disciplinary interest, the global scientific community has remained largely powerless against its extreme nonlinear complexity. Historically, generalized affine mappings (Nx+p) have been deeply entrenched as intractable, chaotic, path-dependent operations plagued by theoretical undecidability.
 
 This project uncovers the deterministic "hidden variables" governing Collatz dynamics by exposing a profound mathematical paradox: the hybridization of the 3x+1 and 3x-1 operators.
 
@@ -14,7 +14,7 @@ Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhib
 
 While symmetric baselines deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results:
 * **The Paradox of Repulsion:** The specific configuration `ECF(3x-1, 3x+1)` triggers absolute divergence. Strikingly, merely swapping the modular assignments to `ECF(3x+1, 3x-1)` violently restores absolute convergence.
-* **The Paradox of Capture:** High-multiplier systems like $7x+1$ or $9x+1$ independently undergo absolute divergence. Yet, when hybridized, the cross-chiral interaction achieves the impossible: `ECF(7x+1, 9x+1)` forcibly collapses into absolute convergence, whereas `ECF(9x+1, 7x+1)` maintains absolute divergence.
+* **The Paradox of Capture:** High-multiplier systems like 7x+1 or 9x+1 independently undergo absolute divergence. Yet, when hybridized, the cross-chiral interaction achieves the impossible: `ECF(7x+1, 9x+1)` forcibly collapses into absolute convergence, whereas `ECF(9x+1, 7x+1)` maintains absolute divergence.
 
 This empirical reality, where **ECF(A, B) ≠ ECF(B, A)**, rigorously proves the existence of chiral non-commutativity and exposes a fundamental symmetry breaking phenomenon within discrete dynamical systems.
 
@@ -38,7 +38,7 @@ We propose the **Absolute Asymptotic Convergence Condition (AACC)**:
 > **Any system with Δ' < 0 MUST universally collapse into absolute convergence (a bounded periodic loop).**
 
 ### The Challenge: 
-Using the provided C++ arbitrary-precision engines (or your own code), find a single generalized ECF configuration and a starting seed $x_0$ such that **Δ' < 0**, but the trajectory diverges to infinity or violates the deterministic lattice gravity bounds.
+Using the provided C++ arbitrary-precision engines (or your own code), find a single generalized ECF configuration and a starting seed x0 such that **Δ' < 0**, but the trajectory diverges to infinity or violates the deterministic lattice gravity bounds.
 
 If a valid counter-example is found, the determinism of the ACT framework is broken. So far, extensive arbitrary-precision empirical evidence strictly supports the AACC without a single exception.
 
