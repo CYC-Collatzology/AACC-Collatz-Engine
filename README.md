@@ -5,12 +5,12 @@
 Welcome to the official repository for the **Arithmetic Chiral Topodynamics (ACT)** framework and the arbitrary-precision C++ engines used to simulate the Extended Collatz Function (ECF).
 
 ## 1. The Paradigm Shift in Discrete Dynamics
-Unlike highly specialized mathematical conjectures, the classic $3x+1$ problem exhibits widespread interdisciplinary popularity, captivating researchers across physics, computer science, and complex systems. Despite this cross-disciplinary interest, the global scientific community has remained largely powerless against its extreme nonlinear complexity. Historically, generalized affine mappings ($Nx+p$) have been deeply entrenched as intractable, chaotic, path-dependent operations plagued by theoretical undecidability.
+Unlike highly specialized mathematical conjectures, the classic $3x+1$ problem exhibits widespread interdisciplinary popularity, captivating researchers across physics, computer science, and complex systems. Despite this cross-disciplinary interest, the global scientific community has remained largely powerless against its extreme nonlinear complexity. Historically, generalized affine mappings (Nx+p) have been deeply entrenched as intractable, chaotic, path-dependent operations plagued by theoretical undecidability.
 
-This project uncovers the deterministic "hidden variables" governing Collatz dynamics by exposing a profound mathematical paradox: the hybridization of the $3x+1$ and $3x-1$ operators.
+This project uncovers the deterministic "hidden variables" governing Collatz dynamics by exposing a profound mathematical paradox: the hybridization of the 3x+1 and 3x-1 operators.
 
 ## 2. Chiral Non-Commutativity & Symmetry Breaking
-Individually, both the $3x+1$ and $3x-1$ systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope to a modulo-4 **Extended Collatz Function (ECF)**, a startling topological reality emerges. In our ECF framework, the odd parity space is bifurcated into two operative engines: $N_1x + p_1$ for $x \equiv 1 \pmod 4$, and $N_2x + p_2$ for $x \equiv 3 \pmod 4$.
+Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope to a modulo-4 **Extended Collatz Function (ECF)**, a startling topological reality emerges. In our ECF framework, the odd parity space is bifurcated into two operative engines: N1x + p1 for x = 1 (mod 4), and N2x + p2 for x = 3 (mod 4).
 
 While symmetric baselines deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results:
 * **The Paradox of Repulsion:** The specific configuration `ECF(3x-1, 3x+1)` triggers absolute divergence. Strikingly, merely swapping the modular assignments to `ECF(3x+1, 3x-1)` violently restores absolute convergence.
@@ -19,15 +19,15 @@ While symmetric baselines deterministically converge, generating an asymmetric h
 This empirical reality, where **ECF(A, B) ≠ ECF(B, A)**, rigorously proves the existence of chiral non-commutativity and exposes a fundamental symmetry breaking phenomenon within discrete dynamical systems.
 
 ## 3. The Universal Topological Invariant (Δ')
-To formalize this topological mechanism, we derive a universal topological invariant, the **Net Drift Discriminant (Δ')**. For standard symmetric systems ($N_1 = N_2$, $p_1 = p_2$), the macroscopic invariant is rigidly locked at:
-> **Δ' = (ln N / ln 2) - 2**
+To formalize this topological mechanism, we derive a universal topological invariant, the **Net Drift Discriminant (Δ')**. For standard symmetric systems (N1=N2,p1=p2), the macroscopic invariant is rigidly locked at:
+> **Δ = (lnN/ln2)-2**
 
-Under this precise discriminant, the classic $3x+1$ yields $\Delta' = (\ln 3 / \ln 2) - 2 \approx -0.415 < 0$, effectively demystifying it as an absolute convergence event with no particularity.
+Under this precise discriminant, the classic 3x+1 yields Δ'= (ln3/ln2) - 2 ≈-0.415<0, effectively demystifying it as an absolute convergence event with no particularity.
 
 For generalized asymmetric ECF systems, the topological framework expands into a unified discriminant:
 > **Δ' = [ln√(N₁ * N₂) / ln 2] - ρ** *(where quantized Lattice Gravity ρ ∈ {1, 2, 3})*
 
-Operating entirely *a priori*, this $\Delta'$ serves as the absolute physical boundary governing the macroscopic destiny of any generalized Collatz dynamical system.
+Operating entirely *a priori*, this Δ' serves as the absolute physical boundary governing the macroscopic destiny of any generalized Collatz dynamical system.
 
 ---
 
