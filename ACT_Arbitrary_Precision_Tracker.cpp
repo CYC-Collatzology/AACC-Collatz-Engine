@@ -745,18 +745,23 @@ int main() {
             cout << "=====================================================================" << endl;
             
         } else if (mode == 3) {
-            
-            // =====================================
+                        // =====================================
             // [ NEW ] Mode 3: ACT Topology Trace
             // =====================================
             cout << "\n--- ACT Single Trajectory Topology Analysis ---\n";
-            bool allow_neg_N = getYesNoPrompt("  Enable N < 0 (Negative Chiral Multipliers)? (y/n): ");
-            bool allow_neg_x = getYesNoPrompt("  Enable x < 0 domain tracking? (y/n): ");
+            
+            // [Enforced Topodynamic Integrity]
+            cout << "[System Integrity] Negative Chiral Multipliers (N < 0): ENABLED\n";
+            cout << "[System Integrity] Full Diophantine Topology (Z-domain) tracking: PERMANENTLY ENABLED\n";
+            cout << "* Note: Artificial boundary truncation (x > 0) is structurally prohibited to ensure absolute macroscopic accuracy.\n\n";
+
+            bool allow_neg_N = true; // Hardcoded to prevent artificial bounds
+            bool allow_neg_x = true; // Hardcoded to prevent false singularity crashes
 
             // Apply constraints mirroring Option 2
-            int N1 = (int)getValidOddInput("Enter N1 (odd, [-99, 99]): ", !allow_neg_N, "-99", "99").get_si();
+            int N1 = (int)getValidOddInput("Enter N1 (odd, [-99, 99]): ", false, "-99", "99").get_si();
             mpz_class p1 = getValidOddInput("Enter p1 (odd, [-999999, 999999]): ", false, "-999999", "999999");
-            int N2 = (int)getValidOddInput("Enter N2 (odd, [-99, 99]): ", !allow_neg_N, "-99", "99").get_si();
+            int N2 = (int)getValidOddInput("Enter N2 (odd, [-99, 99]): ", false, "-99", "99").get_si();
             mpz_class p2 = getValidOddInput("Enter p2 (odd, [-999999, 999999]): ", false, "-999999", "999999");
 
             double iei = calculateInitialExpansionIndex(N1, N2);
