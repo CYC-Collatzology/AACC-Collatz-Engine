@@ -16,7 +16,7 @@ While symmetric baselines deterministically converge, generating an asymmetric h
 * **The Paradox of Repulsion:** The specific configuration `ECF(3x-1, 3x+1)` triggers absolute divergence. Strikingly, merely swapping the modular assignments to `ECF(3x+1, 3x-1)` violently restores absolute convergence.
 * **The Paradox of Capture:** High-multiplier systems like 7x+1 or 9x+1 independently undergo absolute divergence. Yet, when hybridized, the cross-chiral interaction achieves the impossible: `ECF(7x+1, 9x+1)` forcibly collapses into absolute convergence, whereas `ECF(9x+1, 7x+1)` maintains absolute divergence.
 
-This empirical reality, where **ECF(A, B) ≠ ECF(B, A)**, rigorously proves the existence of chiral non-commutativity and exposes a fundamental symmetry breaking phenomenon within discrete dynamical systems.
+This empirical reality, where **ECF(A, B) ≠ ECF(B, A)**, strongly suggests the existence of a chiral non-commutative structure and exposes a fundamental symmetry breaking phenomenon within discrete dynamical systems.
 
 ## 3. The Universal Topological Invariant (Δ')
 To formalize this topological mechanism, we derive a universal topological invariant, the **Net Drift Discriminant (Δ')**. For standard symmetric systems (N1=N2,p1=p2), the macroscopic invariant is rigidly locked at:
@@ -36,6 +36,12 @@ We fully acknowledge that proposing a strictly deterministic "hidden variable" w
 
 We propose the **Absolute Asymptotic Convergence Condition (AACC)**:
 > **Any system with Δ' < 0 MUST universally collapse into absolute convergence (a bounded periodic loop).**
+## Current empirical status
+•Tested benchmark set: 64/64 configurations agree with the sign of Δ'
+•Large-scale arbitrary precision experiments reveal no known counterexample
+•No ECF system with Δ' < 0 and verified divergence has yet been observed
+
+The existence or non-existence of such a counterexample remains an open problem.
 
 ### The Challenge: 
 Using the provided C++ arbitrary-precision engines (or your own code), find a single generalized ECF configuration and a starting seed x0 such that **Δ' < 0**, but the trajectory diverges to infinity or violates the deterministic lattice gravity bounds.
