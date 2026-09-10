@@ -35,7 +35,7 @@ Operating entirely *a priori*, this Δ' serves as the absolute physical boundary
 We fully acknowledge that proposing a strictly deterministic "hidden variable" within a system historically defined by pseudo-random chaos is highly counterintuitive. Therefore, we invite the global scientific and hacker communities to test the absolute predictive power of this framework.
 
 We propose the **Absolute Asymptotic Convergence Condition (AACC)**:
-> **Any system with Δ' < 0 MUST universally collapse into absolute convergence (a bounded periodic loop).**
+> **Any system with Δ' < 0 MUST universally collapse into unconditional convergence (a bounded periodic loop).**
 ## Current empirical status
 •Tested benchmark set: 64/64 configurations agree with the sign of Δ'
 •Large-scale arbitrary precision experiments reveal no known counterexample
