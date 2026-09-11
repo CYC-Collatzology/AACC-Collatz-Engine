@@ -1,8 +1,8 @@
 /* =====================================================================
- * ACT Arbitrary Precision Tracker - TRI-MODE ACADEMIC EDITION [v1.4]
+ * ACT Arbitrary Precision Tracker - TRI-MODE ACADEMIC EDITION [v1.6]
  * + Integrated Fault-Tolerant Checkpointing & Graceful Interruption
- * + Deep Memory Sandbox & Flush Protection
- * + Algebraic Formula Memory & Strict Reproducibility
+ * + Deep Memory Sandbox & Strict Reproducibility
+ * + Exact Perturbation (+2k) Escape Reporting
  * =====================================================================
  * Required: GNU Multiple Precision (GMP) Library, C++17 Standard
  * Compilation: g++ -O3 -std=c++17 ACT_Arbitrary_Precision_Tracker.cpp -lgmpxx -lgmp -o act_tracker
@@ -57,7 +57,6 @@ struct CheckpointState {
     int mode = 0;
     string test_seed_str;
     
-    // [新增] 紀錄代數公式參數
     bool is_algebraic = false;
     string alg_A = "", alg_B = "", alg_C = "", alg_D = "";
     
@@ -96,7 +95,6 @@ bool saveCheckpoint() {
     
     ofs << g_ckpt.mode << "\n" << g_ckpt.test_seed_str << "\n";
     
-    // [新增] 儲存代數公式
     ofs << g_ckpt.is_algebraic << " " << (g_ckpt.alg_A.empty() ? "0" : g_ckpt.alg_A) << " " 
         << (g_ckpt.alg_B.empty() ? "0" : g_ckpt.alg_B) << " " 
         << (g_ckpt.alg_C.empty() ? "0" : g_ckpt.alg_C) << " " 
@@ -156,7 +154,6 @@ bool loadCheckpoint() {
     
     if (!(ifs >> g_ckpt.mode >> g_ckpt.test_seed_str)) return false;
     
-    // [新增] 讀取代數公式
     ifs >> g_ckpt.is_algebraic >> g_ckpt.alg_A >> g_ckpt.alg_B >> g_ckpt.alg_C >> g_ckpt.alg_D;
     
     if (g_ckpt.mode == 1 || g_ckpt.mode == 2) {
@@ -777,7 +774,7 @@ int main() {
             cout << "\nSystem Defined: ECF(" << N1 << "x" << (p1>=0?"+":"") << p1.get_str() << ", " << N2 << "x" << (p2>=0?"+":"") << p2.get_str() << ")\n";
             cout << "Topological State: " << getRegimeString(estEO) << " (Estimated E/O: " << fixed << setprecision(2) << estEO << ")\n";
             cout << "Topological Invariant (Theoretical Delta'): " << (p_delta >= 0 ? "+" : "") << fixed << setprecision(12) << p_delta 
-                 << (p_delta < 0 ? "  ==> [Absolute Convergence]\n" : "  ==> [Contingent Divergence]\n");
+                 << (p_delta < 0 ? "  ==> [Unconditional Convergence]\n" : "  ==> [Contingent Divergence]\n");
 
             mpz_class m_st; cout << "\nMax steps (0 for 1000M): "; cin >> m_st; if (m_st == 0) m_st = 1000000000;
             int disp=0, fa=0, lb=0; cout << "Display:\n  0: None\n  1: First 'a' and last 'b' steps\n  2: Full sequence\nChoice: "; cin >> disp;
@@ -793,7 +790,7 @@ RESUME_EXECUTION:
             if (mode == 1) {
                 mpz_class u_gmp(to_string(g_ckpt.m1_u)), v_gmp(to_string(g_ckpt.m1_v));
                 if(g_ckpt.current_phase == 1 && g_ckpt.current_target_idx == 0) {
-                    cout << "\n[ORACLE PRE-DETERMINATION BLUEPRINT MATRIX] " << endl;
+                    cout << "\n[UCC PRE-DETERMINATION BLUEPRINT MATRIX] " << endl;
                     cout << "     Col: 0 1 2 3 4 5 6 7\n  -----------------------" << endl;
                 }
                 for (int r = 0; r < 8; r++) {
@@ -806,7 +803,7 @@ RESUME_EXECUTION:
                     }
                     if(g_ckpt.current_phase == 1 && g_ckpt.current_target_idx == 0) cout << "|" << endl;
                 }
-                if(g_ckpt.current_phase == 1 && g_ckpt.current_target_idx == 0) cout << "  -----------------------\n  (C = Absolute Convergence | D = Macroscopic Divergence)\n" << endl;
+                if(g_ckpt.current_phase == 1 && g_ckpt.current_target_idx == 0) cout << "  -----------------------\n  (C = Unconditional Convergence | D = Contingent Divergence)\n" << endl;
             } 
             else if (mode == 2) {
                 mpz_class p1(g_ckpt.m2_p1), p2(g_ckpt.m2_p2);
@@ -816,12 +813,12 @@ RESUME_EXECUTION:
 
                 if(g_ckpt.current_phase == 1 && g_ckpt.current_target_idx == 0) {
                     cout << "\n=====================================================================" << endl;
-                    cout << "   SURGICAL ORACLE PRE-DETERMINATION " << endl;
+                    cout << "   SURGICAL CRITERION PRE-DETERMINATION " << endl;
                     cout << "=====================================================================" << endl;
                     cout << " Target Space      : " << formatSpaceConfig(g_ckpt.m2_N1, p1, g_ckpt.m2_N2, p2) << endl;
                     cout << " Expansion Index   : " << fixed << setprecision(5) << iei << endl;
                     cout << " Gravity Operator  : " << estEO << endl;
-                    cout << " >> PREDICTED DESTINY : " << (cus_oracle == 'C' ? "ABSOLUTE CONVERGENCE (C)" : "MACROSCOPIC DIVERGENCE (D)") << endl;
+                    cout << " >> PREDICTED DESTINY : " << (cus_oracle == 'C' ? "UNCONDITIONAL CONVERGENCE (C)" : "CONTINGENT DIVERGENCE (D)") << endl;
                     cout << "=====================================================================\n" << endl;
                 }
                 targets.push_back({g_ckpt.m2_N1, p1, g_ckpt.m2_N2, p2, cus_oracle, "[Custom]"});
@@ -837,7 +834,7 @@ RESUME_EXECUTION:
                 if (g_ckpt.current_target_idx == 0) {
                     cout << "--- PHASE 1: STANDARD MACROSCOPIC SWEEP (" << (phase1_steps/1000) << "K Steps / Dynamic Digits) ---" << endl;
                     cout << "----------------------------------------------------------------------------------" << endl;
-                    cout << " ID[R][C]| Target Space Config                 | Oracle | Empirical | Status   " << endl;
+                    cout << " ID[R][C]| Target Space Config                 | Criterion | Empirical | Status   " << endl;
                     cout << "----------------------------------------------------------------------------------" << endl;
                 }
                 
@@ -845,7 +842,7 @@ RESUME_EXECUTION:
                     const auto& t = targets[g_ckpt.current_target_idx];
                     if (g_ckpt.ecf_x.empty()) { 
                         cout << " " << setw(7) << left << t.id_label << " | " << setw(35) << left << formatSpaceConfig(t.N1, t.p1, t.N2, t.p2) 
-                             << " |   " << t.oracle << "    |  " << flush;
+                             << " |     " << t.oracle << "     |     " << flush;
                     }
                     
                     SimulationResult result = simulate_ecf_verbose(t.N1, t.p1, t.N2, t.p2, test_seed, phase1_steps, p1_max_digits, false);
@@ -855,7 +852,7 @@ RESUME_EXECUTION:
                     if (is_match) g_ckpt.match_count++;
                     else g_ckpt.stubborn_anomalies.push_back({t.id_label, t.N1, t.N2, t.oracle, result.destiny, t.p1, t.p2, result.cycle_length, result.collision_value, result.initial_repetition_step});
                     
-                    cout << "   " << result.destiny << "     | " << (is_match ? "SUCCESS" : "PENDING") << endl;
+                    cout << result.destiny << "     | " << (is_match ? "SUCCESS" : "PENDING") << endl;
                 }
                 cout << "----------------------------------------------------------------------------------" << endl;
                 cout << "Phase 1 Matches: " << g_ckpt.match_count << " / " << targets.size() << endl;
@@ -885,7 +882,7 @@ RESUME_EXECUTION:
                         if (result.destiny == 'I') return 0;
                         
                         if (result.destiny == 'C') {
-                            cout << "\n  >> [VERDICT] TOTAL ATTRACTOR CAPTURE! Oracle Vindicated." << endl;
+                            cout << "\n  >> [VERDICT] TOTAL ATTRACTOR CAPTURE! Criterion Confirmed." << endl;
                             cout << "     >> Orbit repetition : " << result.initial_repetition_step << "\n     >> Anchor (x) : " << result.collision_value.get_str() << endl;                                                                                                      
                             if (result.cycle_length == 1) dissect_boundary_deadlock(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual, result.collision_value);
                             g_ckpt.match_count++;
@@ -900,15 +897,16 @@ RESUME_EXECUTION:
                             cout << "  > Action   : Injecting Topological Perturbations (Seed + 2k)..." << endl;
                         }         
                         bool broke_free = false;
+                        int escape_k = 0;
                         for (int k = 1; k <= 5; ++k) {
                             mpz_class perturbed_seed = test_seed + (2 * k);
                             SimulationResult result = simulate_ecf_verbose(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual, perturbed_seed, phase1_steps, p1_max_digits, false);
                             if (result.destiny == 'I') return 0;
-                            if (result.destiny == 'D') { broke_free = true; break; }
+                            if (result.destiny == 'D') { escape_k = k; broke_free = true; break; }
                         }
                         
                         if (broke_free) {
-                            cout << "  > Result   : MACROSCOPIC DIVERGENCE CONFIRMED!" << endl;
+                            cout << "  > Result   : CONTINGENT DIVERGENCE CONFIRMED! (Broke free at Seed +" << (2 * escape_k) << ")" << endl;
                             g_ckpt.match_count++;
                         } else {
                             cout << "  > Result   : ALL LOCAL PROBES TRAPPED. Flagged for Phase 3." << endl;
@@ -949,17 +947,18 @@ RESUME_EXECUTION:
                     } else {
                         if (g_ckpt.ecf_x.empty()) cout << "\n  > Strategy: Saturation Cluster Probes (Up to Seed + 1000)..." << endl;
                         bool broke_free = false;
+                        int escape_k = 0;
                         long long target_probe_steps = max(1000000LL, phase1_steps * 2);
                         for (int k = 6; k <= 500; ++k) {
                             mpz_class perturbed_seed = test_seed + (2 * k);
                             SimulationResult result = simulate_ecf_verbose(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual, perturbed_seed, target_probe_steps, p1_max_digits, false);
                             if (result.destiny == 'I') return 0;
                             if (result.destiny == 'D') {
-                                cout << "    >> Seed +" << (2*k) << " BROKE FREE!" << endl;
+                                escape_k = k;
                                 broke_free = true; break;
                             }
                         }
-                        if (broke_free) { cout << "  >> [VERDICT] VINDICATED! Global divergence unlocked." << endl; p3_vindicated++; g_ckpt.match_count++; } 
+                        if (broke_free) { cout << "  >> [VERDICT] VINDICATED! Global divergence unlocked at Seed +" << (2 * escape_k) << "." << endl; p3_vindicated++; g_ckpt.match_count++; } 
                         else cout << "  >> [VERDICT] UNBROKEN. Sink density defies perturbation." << endl;
                     }
                 }
