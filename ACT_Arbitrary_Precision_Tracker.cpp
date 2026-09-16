@@ -1,8 +1,9 @@
 /* =====================================================================
- * ACT Arbitrary Precision Tracker - TRI-MODE ACADEMIC EDITION [v1.6]
+ * ACT Arbitrary Precision Tracker - TRI-MODE ACADEMIC EDITION [v1.7]
  * + Integrated Fault-Tolerant Checkpointing & Graceful Interruption
  * + Deep Memory Sandbox & Strict Reproducibility
  * + Exact Perturbation (+2k) Escape Reporting
+ * + Cross-Contamination Sandbox Fix (Memory Isolation)
  * =====================================================================
  * Required: GNU Multiple Precision (GMP) Library, C++17 Standard
  * Compilation: g++ -O3 -std=c++17 ACT_Arbitrary_Precision_Tracker.cpp -lgmpxx -lgmp -o act_tracker
@@ -39,12 +40,12 @@ void handle_sigint(int sig) {
 struct TargetConfig {
     long long N1; mpz_class p1;
     long long N2; mpz_class p2;
-    char oracle; string id_label;
+    char criterion; string id_label;
 };
 
 struct MismatchRecord {
     string id_label; long long N1; long long N2;
-    char oracle; char empirical;
+    char criterion; char empirical;
     mpz_class p1_actual; mpz_class p2_actual;
     long long cycle_length;          
     mpz_class collision_value;       
@@ -108,7 +109,7 @@ bool saveCheckpoint() {
         auto write_mismatch = [&](const vector<MismatchRecord>& vec) {
             ofs << vec.size() << "\n";
             for (const auto& m : vec) {
-                ofs << m.id_label << "\n" << m.N1 << " " << m.N2 << " " << m.oracle << " " << m.empirical << "\n"
+                ofs << m.id_label << "\n" << m.N1 << " " << m.N2 << " " << m.criterion << " " << m.empirical << "\n"
                     << m.p1_actual.get_str() << "\n" << m.p2_actual.get_str() << "\n"
                     << m.cycle_length << " " << m.initial_repetition_step << "\n" 
                     << m.collision_value.get_str() << "\n";
@@ -165,7 +166,7 @@ bool loadCheckpoint() {
             size_t sz = 0; ifs >> sz;
             for (size_t i = 0; i < sz; ++i) {
                 MismatchRecord m; string p1s, p2s, cols;
-                ifs >> m.id_label >> m.N1 >> m.N2 >> m.oracle >> m.empirical
+                ifs >> m.id_label >> m.N1 >> m.N2 >> m.criterion >> m.empirical
                     >> p1s >> p2s >> m.cycle_length >> m.initial_repetition_step >> cols;
                 m.p1_actual = mpz_class(p1s); m.p2_actual = mpz_class(p2s);
                 m.collision_value = mpz_class(cols);
@@ -438,6 +439,7 @@ SimulationResult simulate_ecf_verbose(long long N1_in, const mpz_class& p1, long
             auto [it, inserted] = footprint_telemetry.insert({x, steps});
             if (!inserted) {
                 long long init_step = it->second; long long cycle_len = steps - init_step;
+                g_ckpt.ecf_x = ""; g_ckpt.ecf_steps = 0; // FIX: Clean state before returning success
                 return {'C', init_step, cycle_len, steps, x}; 
             }
         }
@@ -450,6 +452,7 @@ SimulationResult simulate_ecf_verbose(long long N1_in, const mpz_class& p1, long
         if (x == 1 || x == 2 || x == 4) {
             long long init_step = steps;
             if (footprint_telemetry.count(x)) init_step = footprint_telemetry[x];
+            g_ckpt.ecf_x = ""; g_ckpt.ecf_steps = 0; // FIX: Clean state before returning success
             return {'C', init_step, 3, steps, x};
         }
         
@@ -458,10 +461,20 @@ SimulationResult simulate_ecf_verbose(long long N1_in, const mpz_class& p1, long
             cout << "\n    [Telemetry] Step: " << setw(11) << steps << " | Magnitude: " << current_digits << " digits" << flush;
         }
 
-        if (steps > 0 && steps % 50000 == 0) { if (mpz_sizeinbase(x.get_mpz_t(), 10) > max_digits) return {'D', -1, 0, steps, x}; }
+        if (steps > 0 && steps % 50000 == 0) { 
+            if (mpz_sizeinbase(x.get_mpz_t(), 10) > max_digits) {
+                g_ckpt.ecf_x = ""; g_ckpt.ecf_steps = 0; // FIX: Clean state before returning success
+                return {'D', -1, 0, steps, x}; 
+            }
+        }
     }
     
-    if (max_steps != 0 && steps >= max_steps) return {'D', -1, 0, steps, x};
+    if (max_steps != 0 && steps >= max_steps) {
+        g_ckpt.ecf_x = ""; g_ckpt.ecf_steps = 0; // FIX: Clean state before returning success
+        return {'D', -1, 0, steps, x};
+    }
+    
+    g_ckpt.ecf_x = ""; g_ckpt.ecf_steps = 0; // FIX: Clean state before returning success
     return {'C', steps, 1, steps, x}; 
 }
 
@@ -809,7 +822,7 @@ RESUME_EXECUTION:
                 mpz_class p1(g_ckpt.m2_p1), p2(g_ckpt.m2_p2);
                 double iei = calculateInitialExpansionIndex(g_ckpt.m2_N1, g_ckpt.m2_N2);
                 double estEO = calculateTheoreticalEO(g_ckpt.m2_N1, g_ckpt.m2_N2, p1, p2);
-                char cus_oracle = ((iei - estEO) < 0) ? 'C' : 'D';
+                char cus_criterion = ((iei - estEO) < 0) ? 'C' : 'D';
 
                 if(g_ckpt.current_phase == 1 && g_ckpt.current_target_idx == 0) {
                     cout << "\n=====================================================================" << endl;
@@ -818,10 +831,10 @@ RESUME_EXECUTION:
                     cout << " Target Space      : " << formatSpaceConfig(g_ckpt.m2_N1, p1, g_ckpt.m2_N2, p2) << endl;
                     cout << " Expansion Index   : " << fixed << setprecision(5) << iei << endl;
                     cout << " Gravity Operator  : " << estEO << endl;
-                    cout << " >> PREDICTED DESTINY : " << (cus_oracle == 'C' ? "UNCONDITIONAL CONVERGENCE (C)" : "CONTINGENT DIVERGENCE (D)") << endl;
+                    cout << " >> PREDICTED DESTINY : " << (cus_criterion == 'C' ? "UNCONDITIONAL CONVERGENCE (C)" : "CONTINGENT DIVERGENCE (D)") << endl;
                     cout << "=====================================================================\n" << endl;
                 }
-                targets.push_back({g_ckpt.m2_N1, p1, g_ckpt.m2_N2, p2, cus_oracle, "[Custom]"});
+                targets.push_back({g_ckpt.m2_N1, p1, g_ckpt.m2_N2, p2, cus_criterion, "[Custom]"});
             }
             
             long long phase1_steps = max(500000LL, (long long)(seed_digits * 30));
@@ -840,17 +853,15 @@ RESUME_EXECUTION:
                 
                 for (; g_ckpt.current_target_idx < targets.size(); ++g_ckpt.current_target_idx) {
                     const auto& t = targets[g_ckpt.current_target_idx];
-                    if (g_ckpt.ecf_x.empty()) { 
-                        cout << " " << setw(7) << left << t.id_label << " | " << setw(35) << left << formatSpaceConfig(t.N1, t.p1, t.N2, t.p2) 
-                             << " |     " << t.oracle << "     |     " << flush;
-                    }
+                    cout << " " << setw(7) << left << t.id_label << " | " << setw(35) << left << formatSpaceConfig(t.N1, t.p1, t.N2, t.p2) 
+                         << " |     " << t.criterion << "     |     " << flush;
                     
                     SimulationResult result = simulate_ecf_verbose(t.N1, t.p1, t.N2, t.p2, test_seed, phase1_steps, p1_max_digits, false);
                     if (result.destiny == 'I') return 0;
                     
-                    bool is_match = (t.oracle == result.destiny);
+                    bool is_match = (t.criterion == result.destiny);
                     if (is_match) g_ckpt.match_count++;
-                    else g_ckpt.stubborn_anomalies.push_back({t.id_label, t.N1, t.N2, t.oracle, result.destiny, t.p1, t.p2, result.cycle_length, result.collision_value, result.initial_repetition_step});
+                    else g_ckpt.stubborn_anomalies.push_back({t.id_label, t.N1, t.N2, t.criterion, result.destiny, t.p1, t.p2, result.cycle_length, result.collision_value, result.initial_repetition_step});
                     
                     cout << result.destiny << "     | " << (is_match ? "SUCCESS" : "PENDING") << endl;
                 }
@@ -870,32 +881,34 @@ RESUME_EXECUTION:
                 for (; g_ckpt.current_target_idx < g_ckpt.stubborn_anomalies.size(); ++g_ckpt.current_target_idx) {
                     auto anomaly = g_ckpt.stubborn_anomalies[g_ckpt.current_target_idx];
                     string space_name = formatSpaceConfig(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual);
-                    if (g_ckpt.ecf_x.empty()) cout << "\nTarget " << anomaly.id_label << " " << space_name << endl;
+                    cout << "\nTarget " << anomaly.id_label << " " << space_name << endl;
                     
-                    if (anomaly.oracle == 'C' && anomaly.empirical == 'D') {
-                        if (g_ckpt.ecf_x.empty()) {
-                            cout << "  > Diagnosis: False Divergence (Insufficient Depth)." << endl;
-                            cout << "  > Action   : Expanding limits to " << phase2_steps << " steps..." << flush;
-                        }
+                    if (anomaly.criterion == 'C' && anomaly.empirical == 'D') {
+                        cout << "  > Diagnosis: False Divergence (Insufficient Depth)." << endl;
+                        cout << "  > Action   : Expanding limits to " << phase2_steps << " steps..." << flush;
                         
                         SimulationResult result = simulate_ecf_verbose(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual, test_seed, phase2_steps, p2_max_digits, false);
                         if (result.destiny == 'I') return 0;
                         
                         if (result.destiny == 'C') {
-                            cout << "\n  >> [VERDICT] TOTAL ATTRACTOR CAPTURE! Criterion Confirmed." << endl;
-                            cout << "     >> Orbit repetition : " << result.initial_repetition_step << "\n     >> Anchor (x) : " << result.collision_value.get_str() << endl;                                                                                                      
-                            if (result.cycle_length == 1) dissect_boundary_deadlock(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual, result.collision_value);
-                            g_ckpt.match_count++;
+                            cout << "\n  >> [VERDICT] TOTAL ATTRACTOR CAPTURE! Criterion Vindicated." << endl;
+                            cout << "     >> Orbit repetition : " << result.initial_repetition_step << " steps" << endl;
+                            cout << "     >> Cycle length     : " << result.cycle_length << " steps" << endl;
+                            cout << "     >> Anchor (x_min)   : " << result.collision_value.get_str() << endl;
+                            
+                            if (result.cycle_length == 1) {
+                                dissect_boundary_deadlock(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual, result.collision_value);
+                            }
+                            g_ckpt.match_count++; 
                         } else {
                             cout << "\n  > Result   : STILL RESISTING. Flagged for Phase 3." << flush;
                             g_ckpt.phase3_targets.push_back(anomaly);
                         }
                     } 
-                    else if (anomaly.oracle == 'D' && anomaly.empirical == 'C') {
-                        if (g_ckpt.ecf_x.empty()) {
-                            cout << "  > Diagnosis: False Convergence (Trapped). Anchor: " << anomaly.collision_value.get_str() << endl;
-                            cout << "  > Action   : Injecting Topological Perturbations (Seed + 2k)..." << endl;
-                        }         
+                    else if (anomaly.criterion == 'D' && anomaly.empirical == 'C') {
+                        cout << "  > Diagnosis: False Convergence (Trapped). Anchor: " << anomaly.collision_value.get_str() << endl;
+                        cout << "  > Action   : Injecting Topological Perturbations (Seed + 2k)..." << endl;
+                                 
                         bool broke_free = false;
                         int escape_k = 0;
                         for (int k = 1; k <= 5; ++k) {
@@ -928,24 +941,27 @@ RESUME_EXECUTION:
                 for (; g_ckpt.current_target_idx < g_ckpt.phase3_targets.size(); ++g_ckpt.current_target_idx) {
                     auto anomaly = g_ckpt.phase3_targets[g_ckpt.current_target_idx];
                     string space_name = formatSpaceConfig(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual);
-                    if (g_ckpt.ecf_x.empty()) cout << "\n Deep Dive Interrogation: " << space_name << "\n" << flush;
+                    cout << "\n Deep Dive Interrogation: " << space_name << "\n" << flush;
                     
-                    if (anomaly.oracle == 'C') {
+                    if (anomaly.criterion == 'C') {
                         double iei = calculateInitialExpansionIndex(anomaly.N1, anomaly.N2);
                         double estEO = calculateTheoreticalEO(anomaly.N1, anomaly.N2, anomaly.p1_actual, anomaly.p2_actual);
                         long long target_max_steps = ((iei - estEO) < 0) ? max(10000000000LL, phase1_steps * 500) : max(50000000LL, phase1_steps * 100); 
 
-                        if (g_ckpt.ecf_x.empty()) cout << "  > Strategy: " << target_max_steps << " Step Deep Dive Loop Radar active..." << flush;
+                        cout << "  > Strategy: " << target_max_steps << " Step Deep Dive Loop Radar active..." << flush;
                         SimulationResult result = simulate_ecf_verbose(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual, test_seed, target_max_steps, p3_max_digits, true);
                         if (result.destiny == 'I') return 0;
                         
                         if (result.destiny == 'C') {
-                            cout << "\n  >> [VERDICT] VINDICATED! Depth: " << result.total_steps_executed << "\n     >> Anchor: " << result.collision_value.get_str() << endl;                         
+                            cout << "\n  >> [VERDICT] VINDICATED! Depth: " << result.total_steps_executed << endl;
+                            cout << "     >> Orbit repetition : " << result.initial_repetition_step << " steps" << endl;
+                            cout << "     >> Cycle length     : " << result.cycle_length << " steps" << endl;
+                            cout << "     >> Anchor (x_min)   : " << result.collision_value.get_str() << endl;                         
                             if (result.cycle_length == 1) dissect_boundary_deadlock(anomaly.N1, anomaly.p1_actual, anomaly.N2, anomaly.p2_actual, result.collision_value);
                             p3_vindicated++; g_ckpt.match_count++;
                         } else cout << "\n  >> [VERDICT] UNBROKEN. Seed remains stable." << endl;
                     } else {
-                        if (g_ckpt.ecf_x.empty()) cout << "\n  > Strategy: Saturation Cluster Probes (Up to Seed + 1000)..." << endl;
+                        cout << "\n  > Strategy: Saturation Cluster Probes (Up to Seed + 1000)..." << endl;
                         bool broke_free = false;
                         int escape_k = 0;
                         long long target_probe_steps = max(1000000LL, phase1_steps * 2);
@@ -958,7 +974,10 @@ RESUME_EXECUTION:
                                 broke_free = true; break;
                             }
                         }
-                        if (broke_free) { cout << "  >> [VERDICT] VINDICATED! Global divergence unlocked at Seed +" << (2 * escape_k) << "." << endl; p3_vindicated++; g_ckpt.match_count++; } 
+                        if (broke_free) { 
+                            cout << "  >> [VERDICT] VINDICATED! Global divergence unlocked at Seed +" << (2 * escape_k) << "." << endl; 
+                            p3_vindicated++; g_ckpt.match_count++; 
+                        } 
                         else cout << "  >> [VERDICT] UNBROKEN. Sink density defies perturbation." << endl;
                     }
                 }
