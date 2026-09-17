@@ -29,6 +29,10 @@ For generalized asymmetric ECF systems, the topological framework expands into a
 
 Operating entirely *a priori*, this Δ' serves as the absolute physical boundary governing the macroscopic destiny of any generalized Collatz dynamical system.
 
+### 🛡️ Formal Verification (Lean 4)
+The macroscopic flow conservation laws and the quantized lattice gravity (ρ ∈ {1, 2, 3}) derived within the ACT framework have been formally verified using the **Lean 4** theorem prover. 
+The absolute mathematical certainty of this algebraic routing mechanics is available in the formal proof file: [`ACT_Conservation.lean`](./ACT_Conservation.lean).
+
 ---
 
 ## ⚠️ The AACC Challenge: Call for Counter-Examples
@@ -36,10 +40,11 @@ We fully acknowledge that proposing a strictly deterministic "hidden variable" w
 
 We propose the **Absolute Asymptotic Convergence Condition (AACC)**:
 > **Any system with Δ' < 0 MUST universally collapse into unconditional convergence (a bounded periodic loop).**
-## Current empirical status
-•Tested benchmark set: 64/64 configurations agree with the sign of Δ'
-•Large-scale arbitrary precision experiments reveal no known counterexample
-•No ECF system with Δ' < 0 and verified divergence has yet been observed
+
+### Current empirical status
+* Tested benchmark set: 64/64 configurations agree with the sign of Δ'
+* Large-scale arbitrary precision experiments reveal no known counterexample
+* No ECF system with Δ' < 0 and verified divergence has yet been observed
 
 The existence or non-existence of such a counterexample remains an open problem.
 
@@ -52,6 +57,7 @@ If a valid counter-example is found, the determinism of the ACT framework is bro
 
 ## ⚙️ Repository Structure & Usage
 * `ACT_Arbitrary_Precision_Tracker.cpp` - The core C++ source code.
+* `ACT_Conservation.lean` - The Lean 4 formal proof of lattice gravity.
 * `README.md` - Theoretical overview and AACC challenge instructions.
 
 ### System Requirements
@@ -59,6 +65,7 @@ If a valid counter-example is found, the determinism of the ACT framework is bro
 * **Dependencies:** GNU Multiple Precision Arithmetic Library (GMP).
   * Ubuntu/Debian: `sudo apt-get install libgmp-dev`
   * macOS/Homebrew: `brew install gmp`
+
 
 ### Compilation
 To compile the tracker with maximum optimization (`-O3`), run the following command in your terminal:
