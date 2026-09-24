@@ -38,7 +38,7 @@ The absolute mathematical certainty of this algebraic routing mechanics is avail
 ## ⚠️ The AACC Challenge: Call for Counter-Examples
 We fully acknowledge that proposing a strictly deterministic "hidden variable" within a system historically defined by pseudo-random chaos is highly counterintuitive. Therefore, we invite the global scientific and hacker communities to test the absolute predictive power of this framework.
 
-We propose the **Absolute Asymptotic Convergence Condition (AACC)**:
+We propose the **Absolute Asymptotic Convergence Criterion (AACC)**:
 > **Any system with Δ' < 0 MUST universally collapse into unconditional convergence (a bounded periodic loop).**
 
 ### Current empirical status
