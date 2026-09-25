@@ -39,7 +39,7 @@ The absolute mathematical certainty of this algebraic routing mechanics is avail
 We fully acknowledge that proposing a strictly deterministic "hidden variable" within a system historically defined by pseudo-random chaos is highly counterintuitive. Therefore, we invite the global scientific and hacker communities to test the absolute predictive power of this framework.
 
 We propose the **Absolute Asymptotic Convergence Criterion (AACC)**:
-> **Any system with Δ' < 0 MUST universally collapse into unconditional convergence (a bounded periodic loop).**
+> **ACT predicts that any system with Δ' < 0 undergoes unconditional convergence (a bounded periodic loop).**
 
 ### Current empirical status
 * Tested benchmark set: 64/64 configurations agree with the sign of Δ'
@@ -51,7 +51,7 @@ The existence or non-existence of such a counterexample remains an open problem.
 ### The Challenge: 
 Using the provided C++ arbitrary-precision engines (or your own code), find a single generalized ECF configuration and a starting seed x0 such that **Δ' < 0**, but the trajectory diverges to infinity or violates the deterministic lattice gravity bounds.
 
-If a valid counter-example is found, the determinism of the ACT framework is broken. So far, extensive arbitrary-precision empirical evidence strictly supports the AACC without a single exception.
+If a valid counter-example is found, the determinism of this framework must be revised. So far, extensive arbitrary-precision empirical evidence strictly supports the AACC without a single exception.
 
 ---
 
