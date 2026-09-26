@@ -1,4 +1,4 @@
-
+I am not asking people to believe ACT. I am asking people to break ACT.
 # Arithmetic Chiral Topodynamics (ACT): Decoding Extended Collatz Dynamics
 **License:** MIT  |  **Core Architecture:** C++17 (Arbitrary-Precision)
 
