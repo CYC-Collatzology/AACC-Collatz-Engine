@@ -29,7 +29,8 @@ To formalize this topological mechanism, we derive a universal topological invar
 For generalized asymmetric ECF systems, the topological framework expands into a unified discriminant:
 > **Δ' = [ln√(N₁ * N₂) / ln 2] - ρ** *(where quantized Lattice Gravity ρ ∈ {1, 2, 3})*
 
-## 4. You can think of Δ' acting exactly like the discriminant (b² - 4ac) in quadratic equations to determine the system's fate A Priori:
+## 5. 
+You can think of Δ' acting exactly like the discriminant (b² - 4ac) in quadratic equations to determine the system's fate A Priori:
 If Δ' < 0, the Collatz system is unconditionally convergent(ultimately into a periodic Loop), regardless of any seed x.
 If Δ' > 0, the Collatz system is contingently divergent (it will diverge to infinity unless it gets prematurely trapped in a period loop for some specific seed, it's case-sensitive).
 (Note: Δ' can never be exactly 0. Since N₁ and N₂ are odd, the natural log fraction is never an integer, while ρ is always an integer. Therefore, either Unconditional Convergence or Contingent Divergence is the final thing. No ambiguity exists in the system.)}})
