@@ -31,8 +31,11 @@ For generalized asymmetric ECF systems, the topological framework expands into a
 
 ## 5. 
 You can think of Δ' acting exactly like the discriminant (b² - 4ac) in quadratic equations to determine the system's fate A Priori:
+
 If Δ' < 0, the Collatz system is unconditionally convergent(ultimately into a periodic Loop), regardless of any seed x.
+
 If Δ' > 0, the Collatz system is contingently divergent (it will diverge to infinity unless it gets prematurely trapped in a period loop for some specific seed, it's case-sensitive).
+
 (Note: Δ' can never be exactly 0. Since N₁ and N₂ are odd, the natural log fraction is never an integer, while ρ is always an integer. Therefore, either Unconditional Convergence or Contingent Divergence is the final thing. No ambiguity exists in the system.)}})
 
 How do we determine ρ? I have explicitly deduced the rule based on the combined congruence of the system parameters. We evaluate (N₁ + p₁, N₂ + p₂) mod 4 and map it to a base state (C₁, C₂) mod 4.
