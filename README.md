@@ -8,9 +8,8 @@ Welcome to the official repository for the **Arithmetic Chiral Topodynamics (ACT
 
 ## 2.
 The Extended Collatz Function (ECF) system, denoted as ECF(N₁x+p₁, N₂x+p₂). The function is defined by:
-f(x) = N₁x + p₁ (when x ≡ 1 mod 4)
-f(x) = N₂x + p₂ (when x ≡ 3 mod 4)
-f(x) = x / 2 (when x is even)
+f(x) = N₁x + p₁ (when x ≡ 1 mod 4);
+ N₂x + p₂ (when x ≡ 3 mod 4) and x / 2 (when x is even)
 
 Here, N₁, N₂, p₁, p₂ are any odd integers (Z⁺ or Z⁻), and the starting seed x is any non-zero integer.
 
