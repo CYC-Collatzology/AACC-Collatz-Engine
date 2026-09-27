@@ -29,7 +29,7 @@ This empirical reality, where ECF(A, B) ≠ ECF(B, A), strongly suggests the exi
 ## 4. The Universal Topological Invariant (Δ')
 To formalize this topological mechanism, we derive a universal topological invariant, the **Net Drift Discriminant (Δ')**. For standard symmetric systems (N₁=N₂, p₁=p₂), the macroscopic invariant is rigidly locked at:
 
-> **Δ = (ln|N| / ln 2) - 2**
+> **Δ' = (ln|N| / ln 2) - 2**
 
 For generalized asymmetric ECF systems, the topological framework expands into a unified discriminant:
 
@@ -92,6 +92,8 @@ The existence or non-existence of such a counter-example remains an open problem
 Using the provided C++ arbitrary-precision engines (or your own code according to the above rules), find a single generalized ECF configuration and a starting seed x₀ such that **Δ' < 0**, but the trajectory diverges to infinity or violates the deterministic lattice gravity bounds.
 
 If a valid counter-example is found, the determinism of this framework must be revised. So far, extensive arbitrary-precision empirical evidence strictly supports the AACC without a single exception.
+
+Please specify the N1,N2,p1,p2,and the seed x₀ if you hunt the Grail.
 
 ---
 
