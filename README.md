@@ -22,7 +22,7 @@ Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhib
 
 While symmetric baselines deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results:
 * **The Paradox of Repulsion:** The specific configuration ECF(3x-1, 3x+1) triggers astonishing divergence. Strikingly, merely swapping the modular assignments to ECF(3x+1, 3x-1) violently restores absolute convergence.
-* **The Paradox of Capture:** High-multiplier systems like 7x+1 or 9x+1 independently undergo absolute divergence. Yet, when hybridized, the cross-chiral interaction achieves the impossible: ECF(7x+1, 9x+1) forcibly collapses into absolute convergence, whereas ECF(9x+1, 7x+1) maintains expected divergence.
+* **The Paradox of Capture:** High-multiplier systems like 7x+1 or 9x+1 independently undergo expected divergence. Yet, when hybridized, the cross-chiral interaction achieves the impossible: ECF(7x+1, 9x+1) forcibly collapses into absolute convergence, whereas ECF(9x+1, 7x+1) maintains the anticipated divergence.
 
 This empirical reality, where ECF(A, B) ≠ ECF(B, A), strongly suggests the existence of a chiral non-commutative structure and exposes a fundamental symmetry breaking phenomenon within discrete dynamical systems.
 
