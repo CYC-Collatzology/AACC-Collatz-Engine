@@ -21,8 +21,8 @@ Here, N₁, N₂, p₁, p₂ are any odd integers (Z⁺ or Z⁻), and the starti
 Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope to a modulo-4 **Extended Collatz Function (ECF)**, a startling topological reality emerges. 
 
 While symmetric baselines deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results:
-* **The Paradox of Repulsion:** The specific configuration ECF(3x-1, 3x+1) triggers absolute divergence. Strikingly, merely swapping the modular assignments to ECF(3x+1, 3x-1) violently restores absolute convergence.
-* **The Paradox of Capture:** High-multiplier systems like 7x+1 or 9x+1 independently undergo absolute divergence. Yet, when hybridized, the cross-chiral interaction achieves the impossible: ECF(7x+1, 9x+1) forcibly collapses into absolute convergence, whereas ECF(9x+1, 7x+1) maintains absolute divergence.
+* **The Paradox of Repulsion:** The specific configuration ECF(3x-1, 3x+1) triggers astonishing divergence. Strikingly, merely swapping the modular assignments to ECF(3x+1, 3x-1) violently restores absolute convergence.
+* **The Paradox of Capture:** High-multiplier systems like 7x+1 or 9x+1 independently undergo absolute divergence. Yet, when hybridized, the cross-chiral interaction achieves the impossible: ECF(7x+1, 9x+1) forcibly collapses into absolute convergence, whereas ECF(9x+1, 7x+1) maintains expected divergence.
 
 This empirical reality, where ECF(A, B) ≠ ECF(B, A), strongly suggests the existence of a chiral non-commutative structure and exposes a fundamental symmetry breaking phenomenon within discrete dynamical systems.
 
