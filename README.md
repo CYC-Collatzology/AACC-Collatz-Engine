@@ -95,6 +95,9 @@ If a valid counter-example is found, the determinism of this framework must be r
 
 Please specify the N1,N2,p1,p2,and the seed x₀ if you hunt the Grail.
 
+Note on Parameters: Theoretically, the magnitudes of N1, N2, p1, p2 are unrestricted, but they strictly must be odd integers. However, for practical operability, this engine enforces specific bounded ranges.
+​Users can manually modify these limits in the source code if they wish to deploy the engine for deeper or wider experimental searches.
+
 ---
 
 ## ⚙️ Repository Structure & Usage
