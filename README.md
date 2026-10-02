@@ -6,7 +6,7 @@
 Welcome to the official repository for Collatzology and the Arithmetic Chiral Topodynamics (ACT) framework. This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines—collectively known as the AACC-Collatz-Engine—used to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF).
 Note: AACC stands for Absolute Asymptotic Convergence to a Cycle, which is the foundational theorem this engine is built to test and verify.
 
-## 1. An Overview of the Conway Undecidability & The Collatz "USB" Protocol
+## 1. An Overview of the Conway Undecidability 
 
 In 1972, John Conway proved that a natural generalization of the Collatz conjecture is algorithmically undecidable (Turing complete). However, Conway achieved this by mapping rational numbers (fractions like 3/2 or 5/2) to specific moduli, effectively building a linguistic FRACTRAN machine disguised as a dynamical system.
 The ACT framework exposes a profound mathematical discovery. By strictly enforcing the physical iron law of the original problem—pure integer math and absolute parity-driven reduction (if even, x/2) in a restricted class of Modulo-4 Collatz map —the system loses its Turing completeness and collapses into a pure algebraic geometry problem.
