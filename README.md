@@ -6,7 +6,7 @@
 Welcome to the official repository for Collatzology and the Arithmetic Chiral Topodynamics (ACT) framework. This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines—collectively known as the AACC-Collatz-Engine—used to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF).
 Note: AACC stands for Absolute Asymptotic Convergence to a Cycle, which is the foundational theorem this engine is built to test and verify.
 
-## 1. An overview of the Conway Undecidability & The Collatz "USB" Protocol
+## 1. An Overview of the Conway Undecidability & The Collatz "USB" Protocol
 
 In 1972, John Conway proved that a natural generalization of the Collatz conjecture is algorithmically undecidable (Turing complete). However, Conway achieved this by mapping rational numbers (fractions like 3/2 or 5/2) to specific moduli, effectively building a linguistic FRACTRAN machine disguised as a dynamical system.
 The ACT framework exposes a profound mathematical discovery. By strictly enforcing the physical iron law of the original problem—pure integer math and absolute parity-driven reduction (if even, x/2) in a restricted class of Modulo-4 Collatz map —the system loses its Turing completeness and collapses into a pure algebraic geometry problem.
@@ -20,8 +20,10 @@ The Extended Collatz Function (ECF) system is denoted as ECF(N₁x+p₁, N₂x+p
 
 Here, N₁, N₂, p₁, p₂ are any odd integers (Z⁺ or Z⁻), and the starting seed x is any non-zero integer.
 
-The "USB" Backward Compatibility
-To prevent any misconception that ECF is an unrelated arbitrary invention, we must explicitly demonstrate its perfect mathematical backward compatibility. ECF is the "USB 3.0" of Collatz dynamics:
+*The "USB" Backward Compatibility*
+
+To prevent any misconception that ECF is an unrelated arbitrary invention, we must explicitly demonstrate its perfect mathematical backward compatibility. 
+Thinking of ECF is the "USB 3.0" of Collatz dynamics:
 USB 1.0 (The Classic 3x+1): By simply setting N₁ = N₂ = 3 and p₁ = p₂ = 1, the modulo-4 branches merge seamlessly back into a single 3x+1 operation for all odd numbers.
 USB 2.0 (The Generalized Nx+p): By setting N₁ = N₂ = N and p₁ = p₂ = p, it perfectly replicates any symmetric generalized Collatz system.
 
@@ -76,7 +78,7 @@ Mapping this to (C₁, C₂) mod 4 yields three regimes:
 
 Operating entirely *a priori*, this Δ' serves as the absolute physical boundary governing the macroscopic destiny of any generalized Collatz dynamical system. 
 
-### 🛡️ Formal Verification (Lean 4)
+### Formal Verification (Lean 4)
 The macroscopic flow conservation laws and the quantized lattice gravity (ρ ∈ {1, 2, 3}) derived within the ACT framework have been formally verified using the **Lean 4** theorem prover. 
 The absolute mathematical certainty of this algebraic routing mechanics is available in the formal proof file: [`ACT_Conservation.lean`](./ACT_Conservation.lean). For full theoretical breakdown, please see the [Zenodo Preprint](https://doi.org/10.5281/zenodo.21996041).
 
@@ -84,7 +86,7 @@ The absolute mathematical certainty of this algebraic routing mechanics is avail
 
 ## The AACC Challenge: Call for Counter-Examples
 
-We fully acknowledge that proposing a strictly deterministic "hidden variable" within a system historically defined by pseudo-random chaos is highly counterintuitive. Therefore, we invite the global scientific and hacker communities to test the absolute predictive power of this framework.
+We fully acknowledge that proposing a strictly deterministic "hidden variable" within a system historically defined by pseudo-random chaos is highly counterintuitive. Therefore, we invite the global scientific and hacker communities to test and experience the  predictive power of this framework.
 
 Using the provided C++ arbitrary-precision engines (or your own code according to the above rules), find a single generalized ECF configuration and a starting seed x₀ such that **Δ' < 0**, but the trajectory diverges to infinity or violates the deterministic lattice gravity bounds.
 
@@ -98,21 +100,6 @@ Note on Parameters: Theoretically, the magnitudes of N1, N2, p1, p2 are unrestri
 ---
 
 ## Repository Structure & Usage
-AACC_Crucible_v5.3.cpp - The ultimate dual-engine C++ arbitrary-precision tracker.
-ACT_Conservation.lean - The Lean 4 formal proof of lattice gravity.
-README.md - Theoretical overview and AACC challenge instructions.
-System Requirements
-C++ Compiler: C++17 Standard compatible (e.g., Clang or GCC).
-Dependencies: GNU Multiple Precision Arithmetic Library (GMP).
-Ubuntu/Debian: sudo apt-get install libgmp-dev
-macOS/Homebrew: brew install gmp
-Android (CxxDroid): GMP is supported natively.
-Compilation
-To compile the Crucible with maximum optimization, run:
-
-clang++ -O3 -std=c++17 -pthread AACC_Crucible_v5.3.cpp -lgmpxx -lgmp -o aacc_v5
-
-⚙️ Repository Structure & Usage
 * `AACC_Crucible_v5.3.cpp - The ultimate dual-engine C++ arbitrary-precision tracker.
 * `ACT_Conservation.lean` - The Lean 4 formal proof of lattice gravity.
 * `README.md` - Theoretical overview and AACC challenge instructions.
