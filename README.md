@@ -6,10 +6,10 @@
 Welcome to the official repository for Collatzology and the Arithmetic Chiral Topodynamics (ACT) framework. This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines—collectively known as the AACC-Collatz-Engine—used to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF).
 Note: AACC stands for Absolute Asymptotic Convergence to a Cycle, which is the foundational theorem this engine is built to test and verify.
 
-## 1. An Overview of the Conway Undecidability 
+## 1. An Overview of the Conway Undecidability
 
 In 1972, John Conway proved that a natural generalization of the Collatz conjecture is algorithmically undecidable (Turing complete). However, Conway achieved this by mapping rational numbers (fractions like 3/2 or 5/2) to specific moduli, effectively building a linguistic FRACTRAN machine disguised as a dynamical system.
-The ACT framework exposes a profound mathematical discovery. By strictly enforcing the physical iron law of the original problem—pure integer math and absolute parity-driven reduction (if even, x/2) in a restricted class of Modulo-4 Collatz map —the system loses its Turing completeness and collapses into a pure algebraic geometry problem.
+The ACT framework exposes a profound mathematical discovery. By strictly enforcing the physical iron law of the original problem—pure integer math and absolute parity-driven reduction (if even, x/2) in a restricted class of Modulo-4 Collatz maps—the system loses its Turing completeness and collapses into a pure algebraic geometry problem.
 
 ## 2. The Extended Collatz Function (ECF)
 The Extended Collatz Function (ECF) system is denoted as ECF(N₁x+p₁, N₂x+p₂) and is defined by:
@@ -22,10 +22,12 @@ Here, N₁, N₂, p₁, p₂ are any odd integers (Z⁺ or Z⁻), and the starti
 
 *The "USB" Backward Compatibility*
 
-To prevent any misconception that ECF is an unrelated arbitrary invention, we must explicitly demonstrate its perfect mathematical backward compatibility. 
-Thinking of ECF is the "USB 3.0" of Collatz dynamics:
+To prevent any misconception that ECF is an unrelated arbitrary invention, we must explicitly demonstrate its perfect mathematical backward compatibility. Think of ECF as the "USB 3.0" of Collatz dynamics:
+
 USB 1.0 (The Classic 3x+1): By simply setting N₁ = N₂ = 3 and p₁ = p₂ = 1, the modulo-4 branches merge seamlessly back into a single 3x+1 operation for all odd numbers.
+
 USB 2.0 (The Generalized Nx+p): By setting N₁ = N₂ = N and p₁ = p₂ = p, it perfectly replicates any symmetric generalized Collatz system.
+To prevent any misconception that ECF is an unrelated arbitrary invention, we must explicitly demonstrate its perfect mathematical backward compatibility. 
 
 ## 3. Chiral Non-Commutativity & Symmetry Breaking
 Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope to a modulo-4 **Extended Collatz Function (ECF)**, a startling topological reality emerges. 
@@ -84,9 +86,13 @@ The absolute mathematical certainty of this algebraic routing mechanics is avail
 
 ---
 
-## The AACC Challenge: Call for Counter-Examples
+## The AACC Conjecture & The Challenge
 
-We fully acknowledge that proposing a strictly deterministic "hidden variable" within a system historically defined by pseudo-random chaos is highly counterintuitive. Therefore, we invite the global scientific and hacker communities to test and experience the  predictive power of this framework.
+​We fully acknowledge that proposing a strictly deterministic "hidden variable" within a system historically defined by pseudo-random chaos is highly counterintuitive. Therefore, we present The AACC Conjecture:
+​The AACC Conjecture states that any ECF Collatz-like system governed by a Net Drift Discriminant of Δ' < 0 will undergo Absolute Asymptotic Convergence to a Cycle, regardless of the magnitude or complexity of the starting seed x₀.
+​We invite the global scientific and hacker communities to test and experience the predictive power of this framework.
+
+## The Grail Hunt
 
 Using the provided C++ arbitrary-precision engines (or your own code according to the above rules), find a single generalized ECF configuration and a starting seed x₀ such that **Δ' < 0**, but the trajectory diverges to infinity or violates the deterministic lattice gravity bounds.
 
