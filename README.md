@@ -25,10 +25,10 @@ Here, N₁, N₂, p₁, p₂ are any odd integers (Z⁺ or Z⁻), and the starti
 
 To prevent any misconception that ECF is an unrelated arbitrary invention, we must explicitly demonstrate its perfect mathematical backward compatibility. Think of ECF as the "USB 3.0" of Collatz dynamics:
 
+USB 2.0 (The Generalized Nx+p): By setting N₁ = N₂ = N and p₁ = p₂ = p, it perfectly replicates any symmetric generalized Collatz system.
+
 USB 1.0 (The Classic 3x+1): By simply setting N₁ = N₂ = 3 and p₁ = p₂ = 1, the modulo-4 branches merge seamlessly back into a single 3x+1 operation for all odd numbers.
 
-USB 2.0 (The Generalized Nx+p): By setting N₁ = N₂ = N and p₁ = p₂ = p, it perfectly replicates any symmetric generalized Collatz system.
-To prevent any misconception that ECF is an unrelated arbitrary invention, we must explicitly demonstrate its perfect mathematical backward compatibility. 
 
 ## 3. Chiral Non-Commutativity & Symmetry Breaking
 Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope to a modulo-4 **Extended Collatz Function (ECF)**, a startling topological reality emerges. 
