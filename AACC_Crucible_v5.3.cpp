@@ -1,8 +1,8 @@
 /* =====================================================================
- * AACC INFINITE CRUCIBLE FUZZER - ULTIMATE PRO EDITION [v5.3]
+ * AACC TOPODYNAMIC CRUCIBLE FUZZER - ULTIMATE PRO EDITION [v5.3]
  * + Engine 1: Stratified Lattice Gravity Fuzzer (Floyd's Algorithm)
  * + Engine 2: O(1) Memory Anatomy Trace with Tortoise & Hare Recovery
- * + Dynamic Relativity Shield (Adaptive OOM Protection with UI Warning)
+ * + Infinity Overload Shield (Adaptive OOM Protection with UI Warning)
  * =====================================================================
  * Required: GNU Multiple Precision (GMP) Library, C++17 Standard
  * Compilation: clang++ -O3 -std=c++17 -pthread AACC_Crucible_v5.cpp -lgmpxx -lgmp -o aacc_v5
@@ -35,6 +35,7 @@ void handle_sigint(int sig) { g_interrupt_flag = 1; }
 mutex fuzzer_mutex;
 
 struct FuzzConfig {
+    int original_id; // 綁定初始編號
     long long n1, n2, p1, p2;
     int rho; double delta;
 };
@@ -182,7 +183,10 @@ vector<FuzzConfig> generate_stratified_configs(int target_configs) {
             if (c1 == 2 && c2 == 0) actual_rho = 1; else if ((c1 == 2 && c2 == 2) || (c1 == 0 && c2 == 0)) actual_rho = 2; else if (c1 == 0 && c2 == 2) actual_rho = 3;
             if (actual_rho == grp.rho) {
                 double delta = compute_delta_prime(n1, n2, actual_rho);
-                if (delta < 0.0) { configs.push_back({n1, n2, p1, p2, actual_rho, delta}); count++; }
+                if (delta < 0.0) { 
+                    configs.push_back({(int)configs.size() + 1, n1, n2, p1, p2, actual_rho, delta}); 
+                    count++; 
+                }
             }
         }
     }
@@ -236,8 +240,8 @@ void fuzz_phase1_worker(const vector<FuzzConfig>& configs, atomic<int>& index_co
         
         string config_str = format_ecf(cfg.n1, cfg.p1, cfg.n2, cfg.p2);
         lock_guard<mutex> lock(fuzzer_mutex);
-        cout << "[+] P1 [" << setw(3) << (idx + 1) << "/" << configs.size() << "] [ρ=" << cfg.rho << "] " << setw(23) << left << config_str << " | D'=" << fixed << setprecision(5) << cfg.delta;
-        if (!info.diverges) cout << " --> [CLEARED: Loop Step " << info.steps_to_cycle_start << " (Len " << info.cycle_length << "), Anchor x=" << formatBigNumber(info.cycle_anchor) << "]\n";
+        cout << "[+] P1 [" << setw(3) << cfg.original_id << "/" << configs.size() << "] [ρ=" << cfg.rho << "] " << setw(23) << left << config_str << " | D'=" << fixed << setprecision(5) << cfg.delta;
+        if (!info.diverges) cout << " --> [CLEARED: Loop Step " << info.steps_to_cycle_start << " (Cycle Length " << info.cycle_length << "), Anchor x=" << formatBigNumber(info.cycle_anchor) << "]\n";
         else cout << " --> [PENDING: Sent to Deep Pursuit]\n";
         cout << flush;
     }
@@ -254,9 +258,9 @@ void fuzz_deep_phase_worker(const vector<pair<FuzzConfig, string>>& current_targ
         lock_guard<mutex> lock(fuzzer_mutex);
         if (info.diverges) {
             next_targets.push_back({cfg, seed});
-            cout << "[!] P" << phase_num << " | Stubborn [" << (idx + 1) << "/" << current_targets.size() << "] [ρ=" << cfg.rho << "] " << setw(23) << left << config_str << " SURVIVED " << current_steps << " steps! (D'=" << fixed << setprecision(5) << cfg.delta << ")\n" << flush;
+            cout << "[!] P" << phase_num << " | Stubborn [Config #" << setw(2) << cfg.original_id << "] [ρ=" << cfg.rho << "] " << setw(23) << left << config_str << " SURVIVED " << current_steps << " steps! (D'=" << fixed << setprecision(5) << cfg.delta << ")\n" << flush;
         } else {
-            cout << "[+] P" << phase_num << " | Stubborn [" << (idx + 1) << "/" << current_targets.size() << "] [ρ=" << cfg.rho << "] " << setw(23) << left << config_str << " --> [VINDICATED: Loop Step " << info.steps_to_cycle_start << " (Len " << info.cycle_length << "), Anchor x=" << formatBigNumber(info.cycle_anchor) << "]\n" << flush;
+            cout << "[+] P" << phase_num << " | Stubborn [Config #" << setw(2) << cfg.original_id << "] [ρ=" << cfg.rho << "] " << setw(23) << left << config_str << " --> [VINDICATED: Loop Step " << info.steps_to_cycle_start << " (Cycle Length " << info.cycle_length << "), Anchor x=" << formatBigNumber(info.cycle_anchor) << "]\n" << flush;
         }
     }
 }
@@ -300,18 +304,19 @@ namespace ACT {
                 
                 if (steps > 0 && steps % 500000 == 0) cout << "." << flush;
                 if (rec_act) { if (steps < 50000000) res.digit_history.push_back(getExactDigits(current)); else rec_act = false; }
-if (steps > 0 && steps % 5000 == 0) {
-    if (getExactDigits(current) > DIGIT_CEILING) {
-        cout << "\n\n[!!!] INFINITY OVERLOAD SHIELD DEPLOYED [!!!]" << endl;
-        cout << "[*] The trajectory has exponentially expanded beyond " << DIGIT_CEILING << " digits." << endl;
-        cout << "[*] System halted early to prevent catastrophic RAM exhaustion." << endl;
-        cout << "[*] EMPIRICAL VERIFICATION: This exponential expansion strictly validates the theoretical macroscopic drift (Delta' > 0). The system is confirmed to be in a state of Contingent Divergence." << endl;
-        
-        res.end_message = "VINDICATED DIVERGENCE: Escaped Macroscopic Bounds (> " + to_string(DIGIT_CEILING) + " digits). Theoretical Drift Confirmed.";
-        res.loop_detected = false;
-        break;
-    }
-}
+                
+                if (steps > 0 && steps % 5000 == 0) {
+                    if (getExactDigits(current) > DIGIT_CEILING) {
+                        cout << "\n\n[!!!] INFINITY OVERLOAD SHIELD DEPLOYED [!!!]" << endl;
+                        cout << "[*] The trajectory has exponentially expanded beyond " << DIGIT_CEILING << " digits." << endl;
+                        cout << "[*] System halted early to prevent catastrophic RAM exhaustion." << endl;
+                        cout << "[*] EMPIRICAL VERIFICATION: This exponential expansion strictly validates the theoretical macroscopic drift (Delta' > 0). The system is confirmed to be in a state of Contingent Divergence." << endl;
+                        
+                        res.end_message = "VINDICATED DIVERGENCE: Escaped Macroscopic Bounds (> " + to_string(DIGIT_CEILING) + " digits). Theoretical Drift Confirmed.";
+                        res.loop_detected = false;
+                        break;
+                    }
+                }
 
                 next_state(hare, N1, p1, N2, p2);
                 next_state(hare, N1, p1, N2, p2);
@@ -475,9 +480,9 @@ int main() {
     
     while (true) {
         cout << "=====================================================================" << endl;
-        cout << "   AACC INFINITE CRUCIBLE FUZZER & ANATOMY TRACER [v5.3]" << endl;
+        cout << "   AACC TOPODYNAMIC CRUCIBLE FUZZER & ANATOMY TRACER [v5.3]" << endl;
         cout << "=====================================================================" << endl;
-        cout << " [1] AACC Infinite Crucible Fuzzer (Stratified Sweep & Deep Pursuit)" << endl;
+        cout << " [1] AACC Topodynamic Crucible Fuzzer (Stratified Sweep & Deep Pursuit)" << endl;
         cout << " [2] ACT Trajectory Anatomy (Custom Surgical Strike & Trace)" << endl;
         cout << "---------------------------------------------------------------------" << endl;
         
@@ -493,7 +498,7 @@ int main() {
         
         if (mode == 1) {
             cout << "\n=====================================================================" << endl;
-            cout << "   [ENGINE 1] AACC INFINITE CRUCIBLE FUZZER" << endl;
+            cout << "   [ENGINE 1] AACC TOPODYNAMIC CRUCIBLE FUZZER" << endl;
             cout << "=====================================================================" << endl;
             
             int target_configs = 100, threads = 8, seed_size = 100;        
@@ -502,7 +507,7 @@ int main() {
             cout << "[?] Enter Number of Critical Configs to test (default 100): ";
             getline(cin, input_buf); if (!input_buf.empty()) target_configs = stoi(input_buf);
 
-            cout << "[?] Enter Shared Master Seed Magnitude (digits, default 100): ";
+            cout << "[?] Enter Shared Random Seed Magnitude (digits, default 100): ";
             getline(cin, input_buf); if (!input_buf.empty()) seed_size = stoi(input_buf);
             
             cout << "[?] Enter Phase 1 Max Steps (default 10000000): ";
