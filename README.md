@@ -4,7 +4,7 @@
 **Preprint:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21996041.svg)](https://doi.org/10.5281/zenodo.21996041)
 
 Welcome to the official repository for Collatzology and the Arithmetic Chiral Topodynamics (ACT) framework. This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines—collectively known as the AACC-Collatz-Engine—used to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF).
-Note: AACC stands for Absolute Asymptotic Convergence to a Cycle, which is the foundational theorem this engine is built to test and verify.
+Note: AACC stands for Absolute Asymptotic Convergence to a Cycle, which is the foundational conjecture this engine is built to test and verify.
 
 ## 1. An Overview of the Conway Undecidability
 
