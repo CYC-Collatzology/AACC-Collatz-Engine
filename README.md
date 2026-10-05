@@ -10,7 +10,7 @@ Note: AACC stands for Absolute Asymptotic Convergence to a Cycle, which is the f
 ## 1. An Overview of the Conway Undecidability
 
 In 1972, John Conway proved that a natural generalization of the Collatz conjecture is algorithmically undecidable (Turing complete). However, Conway achieved this by mapping rational numbers (fractions like 3/2 or 5/2) to specific moduli, effectively building a linguistic FRACTRAN machine disguised as a dynamical system.
-The ACT framework exposes a profound mathematical discovery. By strictly enforcing the physical iron law of the original problem—pure integer math and absolute parity-driven reduction (if even, x/2) in a restricted class of Modulo-4 Collatz maps—the system loses its Turing completeness and collapses into a pure algebraic geometry problem.
+The ACT framework exposes a profound mathematical discovery. By strictly enforcing the physical iron law of the original "Collatz System"—pure integer math and absolute parity-driven reduction (if even, x/2) in a restricted class of Modulo-4 Collatz maps—the system loses its Turing completeness and collapses into a pure algebraic geometry problem.
 
 ## 2. The Extended Collatz Function (ECF)
 The Extended Collatz Function (ECF) system is denoted as ECF(N₁x+p₁, N₂x+p₂) and is defined by:
@@ -31,11 +31,11 @@ USB 1.0 (The Classic 3x+1): By simply setting N₁ = N₂ = 3 and p₁ = p₂ = 
 
 
 ## 3. Chiral Non-Commutativity & Symmetry Breaking
-Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhibit absolute convergence under standard modulo-2 mappings. However, when we broaden the analytical scope to a modulo-4 **Extended Collatz Function (ECF)**, a startling topological reality emerges. 
+Individually, both the 3x+1 and 3x-1 systems are universally recognized to exhibit convergence under standard modulo-2 mappings. However, when we broaden the analytical scope to a modulo-4 **Extended Collatz Function (ECF)**, a startling topological reality emerges. 
 
 While symmetric baselines deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results:
 * **The Paradox of Repulsion:** The specific configuration ECF(3x-1, 3x+1) triggers astonishing divergence. Strikingly, merely swapping the modular assignments to ECF(3x+1, 3x-1) violently restores absolute convergence.
-* **The Paradox of Capture:** High-multiplier systems like 7x+1 or 9x+1 independently undergo expected divergence. Yet, when hybridized, the cross-chiral interaction achieves the impossible: ECF(7x+1, 9x+1) forcibly collapses into absolute convergence, whereas ECF(9x+1, 7x+1) maintains the anticipated divergence.
+* **The Paradox of Capture:** High-multiplier systems like 7x+1 or 9x+1 independently undergo expected divergence. Yet, when hybridized, the cross-chiral interaction achieves the impossible: ECF(7x+1, 9x+1) forcibly collapses into unbelievable convergence, whereas ECF(9x+1, 7x+1) maintains the anticipated divergence.
 
 This empirical reality, where ECF(A, B) ≠ ECF(B, A), strongly suggests the existence of a chiral non-commutative structure and exposes a fundamental symmetry breaking phenomenon within discrete dynamical systems.
 
