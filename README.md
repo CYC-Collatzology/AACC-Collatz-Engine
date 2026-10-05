@@ -42,18 +42,20 @@ To formalize this mechanism, we derive a universal topological invariant, the **
 For generalized asymmetric ECF systems, the topological framework expands into a unified discriminant:
 **Δ' = [ln√(|N₁ · N₂|) / ln 2] - ρ**  *(where quantized Lattice Gravity ρ ∈ {1, 2, 3})*
 
-### Predicting System Fate A Priori
-Δ' acts exactly like the discriminant (b² - 4ac) in quadratic equations, determining the system's fate *before* a single computational step is taken:
-
-* **If Δ' < 0 (Unconditional Convergence):** The system achieves AACC. It universally condenses into a finite periodic loop, rendering the chaotic variance of any microscopic seed irrelevant.
-* **If Δ' > 0 (Contingent Divergence):** The system will diverge to infinity *unless* it gets prematurely trapped in a periodic micro-loop for a specific seed.
-*(Note: Δ' can never be exactly 0, ensuring absolute determinism).*
 
 > **Determining Lattice Gravity (ρ):**
 > Evaluated via `(N₁ + p₁, N₂ + p₂) mod 4 ≡ (C₁, C₂)`.
 > * **Regime I (ρ=1):** (2, 0)
 > * **Regime II (ρ=2):** (2, 2) or (0, 0)
 > * **Regime III (ρ=3):** (0, 2)
+
+### Predicting System Fate A Priori
+Δ' acts exactly like the discriminant (b² - 4ac) in quadratic equations, determining the system's fate *before* a single computational step is taken:
+
+* **If Δ' < 0 (Unconditional Convergence):** The system achieves AACC. It universally condenses into a finite periodic loop, rendering the chaotic variance of any microscopic seed irrelevant.
+* **If Δ' > 0 (Contingent Divergence):** The system will diverge to infinity *unless* it gets prematurely trapped in a periodic micro-loop for a specific seed.
+
+*(Note: Δ' can never be exactly 0, ensuring absolute determinism).*
 
 ---
 
