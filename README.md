@@ -1,18 +1,19 @@
-# Collatzology & Arithmetic Chiral Topodynamics (ACT)
-**Decoding the Extended Collatz Dynamics via Universal Topological Invariants**
+# Predicting Convergence and Divergence A Priori in Extended Collatz Mappings
 
 **License:** MIT | **Core Architecture:** C++17 (Arbitrary-Precision & O(1) Memory)
 **Preprint:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21996041.svg)](https://doi.org/10.5281/zenodo.21996041)
 
-> **Collatzology** */kəˈlætsɒlədʒi/* (n.): The unified mathematical and computational study of generalized Collatz-like discrete dynamical systems. It transitions the 89-year-old 3x+1 problem from an isolated, path-dependent anomaly into a predictable, macroscopic topological architecture (The Extended Collatz Family).
+*Can the macroscopic fate of a discrete dynamical system be mathematically predicted prior to any path-dependent computation?* 
 
-For decades, the mathematical community has treated generalized Nx+p mappings as fragmented, unpredictable puzzles. **Collatzology** is the Grand Unified Theory for this domain. 
+To answer this, we introduce **Arithmetic Chiral Topodynamics (ACT)**—an innovative, deterministic methodology that completely redefines the study of the Extended Collatz Family.
 
-This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines of the **Arithmetic Chiral Topodynamics (ACT)** framework. ACT serves as the foundational physical law of Collatzology, replacing stochastic guesswork with strict algebraic geometry, deterministic topological invariants (Δ'), and machine-verified logic.
+For decades, the mathematical community has treated the classic 3x+1 problem and generalized Nx+p mappings as fragmented, unpredictable puzzles, heavily reliant on step-by-step stochastic tracking. The ACT framework fundamentally shifts this paradigm. It transitions the study of Collatz-like mappings from path-dependent numerical tracking into a predictable, macroscopic topological architecture.
+
+This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines of the ACT framework. By replacing guesswork with strict algebraic geometry, the Net Drift Discriminant (Δ'), and machine-verified logic, ACT serves as the Grand Unified Theory for generalized discrete dynamical systems.
 
 Included here is the **AACC Crucible Fuzzer**—a weaponized computational engine built to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF). 
-*(Note: AACC stands for **Absolute Asymptotic Convergence to a Cycle**, the fundamental macroscopic destiny this engine is built to test, verify, and mathematically enforce.)*
-
+*(Note: AACC stands for **Absolute Asymptotic Convergence to a Cycle**, the fundamental macroscopic limit this engine is built to test, verify, and mathematically enforce.)*
+ 
 ---
 
 ## 1. A Deterministic Special Case within Conway’s Generalized Collatz Mappings
