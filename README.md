@@ -5,14 +5,18 @@
 
 Welcome to the official repository for Collatzology and the Arithmetic Chiral Topodynamics (ACT) framework. This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines—collectively known as the **AACC Crucible Fuzzer**—used to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF).
 
-> **Note:** AACC stands for *Absolute Asymptotic Convergence to a Cycle*, the foundational conjecture this engine is built to test, verify, and mathematically enforce.
+> **Note:** AACC stands for **Absolute Asymptotic Convergence to a Cycle**, the foundational conjecture this engine is built to test, verify, and mathematically enforce.
 
 ---
 
-## 1. Beyond Conway's Undecidability
-In 1972, John Conway proved that a natural generalization of the Collatz conjecture is algorithmically undecidable (Turing complete). However, Conway achieved this by mapping rational numbers (fractions) to specific moduli, effectively building a linguistic FRACTRAN machine disguised as a dynamical system. 
+## 1. A Deterministic Special Case within Conway’s Generalized Collatz Mappings
 
-The ACT framework exposes a profound mathematical discovery: By strictly enforcing the physical iron law of the original "Collatz System"—**pure integer math and absolute parity-driven reduction (if even, x/2)**—in a restricted class of Modulo-4 Collatz maps, the system loses its Turing completeness and collapses into a deterministic algebraic geometry problem.
+In 1972, John Horton Conway established a monumental proof: generalized Collatz mappings are Turing-complete, rendering their macroscopic trajectories algorithmically undecidable. To achieve this, Conway utilized fractional mappings to construct linguistic FRACTRAN machines disguised as dynamical systems. 
+
+The ACT framework does not dispute this overarching undecidability; rather, it isolates a profound, highly structured special case. By strictly enforcing the physical iron law of the classic Collatz system—**pure integer arithmetic and absolute parity-driven reduction (always x/2 if even)**—within a restricted Modulo-4 architecture, the system is stripped of its Turing-complete chaos. 
+
+Within this specific boundary, the computational irreducibility collapses. What remains is no longer an unpredictable stochastic process, but a fully deterministic algebraic geometry problem.
+
 
 ## 2. The Extended Collatz Function (ECF)
 The Extended Collatz Function system is denoted as **ECF(N₁x+p₁, N₂x+p₂)** and is defined by:
