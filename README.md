@@ -68,6 +68,9 @@ The included C++ engine (`AACC_Crucible_v5.4.cpp`) is not a simple script; it is
 * **Infinity Overload Shield:** Automatically prevents Out-Of-Memory (OOM) crashes during exponential divergence by evaluating bit-length velocity.
 * **Dynamic Evaporation Limit (Anti-Smuggling):** Adversarially defends against "fake theory violations." The engine dynamically calculates the absolute minimum steps required for a system to converge based on the combined digit mass of the seed and the lattice constants (p₁, p₂), actively overriding insufficient user-defined step limits.
 
+Note on Parameters: Theoretically, the magnitudes of N1, N2, p1, p2 are unrestricted, but they strictly must be odd integers. However, for practical operability, this engine enforces specific bounded ranges.
+Users can manually modify these limits for deeper or wider experimental searches.
+
 ## 7. The AACC Challenge (The Grail Hunt)
 We invite the global hacker and mathematical communities to test the predictive power of this framework. 
 
