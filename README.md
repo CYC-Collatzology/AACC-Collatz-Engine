@@ -4,7 +4,7 @@
 **License:** MIT | **Core Architecture:** C++17 (Arbitrary-Precision & O(1) Memory)
 **Preprint:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21996041.svg)](https://doi.org/10.5281/zenodo.21996041)
 
-> **Collatzology** */kəˈlætsɒlədʒi/* (n.): The unified mathematical and computational study of generalized Collatz-like discrete dynamical systems. It transitions the 85-year-old 3x+1 problem from an isolated, path-dependent anomaly into a predictable, macroscopic topological architecture (The Extended Collatz Family).
+> **Collatzology** */kəˈlætsɒlədʒi/* (n.): The unified mathematical and computational study of generalized Collatz-like discrete dynamical systems. It transitions the 89-year-old 3x+1 problem from an isolated, path-dependent anomaly into a predictable, macroscopic topological architecture (The Extended Collatz Family).
 
 For decades, the mathematical community has treated generalized $Nx+p$ mappings as fragmented, unpredictable puzzles. **Collatzology** is the Grand Unified Theory for this domain. 
 
