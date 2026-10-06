@@ -25,19 +25,22 @@ The ACT framework does not dispute this overarching undecidability; rather, it i
 Within this specific boundary, the computational irreducibility collapses. What remains is no longer an unpredictable stochastic process, but a fully deterministic algebraic geometry problem.
 
 
-## 2. The Extended Collatz Function (ECF)
-The Extended Collatz Function system is denoted as **ECF(N₁x+p₁, N₂x+p₂)** and is defined by:
+## 2. The Extended Collatz Function (ECF) & The Cosmic Scale
 
+The Extended Collatz Function system is denoted as **ECF(N₁x+p₁, N₂x+p₂)** and is defined by:
 * `f(x) = N₁x + p₁` (when `x ≡ 1 mod 4`)
 * `f(x) = N₂x + p₂` (when `x ≡ 3 mod 4`)
 * `f(x) = x / 2` (when `x` is even)
 
 *(Where N₁, N₂, p₁, p₂ are any odd integers, and the starting seed x₀ is any non-zero integer).*
 
-### The "USB" Backward Compatibility
-To prevent any misconception that ECF is an unrelated arbitrary invention, it perfectly maintains mathematical backward compatibility:
-* **USB 2.0 (The Generalized Nx+p):** By setting N₁ = N₂ = N and p₁ = p₂ = p, it perfectly replicates any symmetric generalized Collatz system.
-* **USB 1.0 (The Classic 3x+1):** By simply setting N₁ = N₂ = 3 and p₁ = p₂ = 1, the modulo-4 branches merge seamlessly back into the original 3x+1 operation.
+#### The "USB" Backward Compatibility
+To prevent any misconception that ECF is an unrelated arbitrary invention, it is engineered with absolute mathematical backward compatibility. The ACT framework expands the analytical horizon of discrete dynamical systems from a single planet to an entire galaxy:
+
+*   **USB 1.0 (The Earth — Classic 3x+1):** By setting N₁ = N₂ = 3 and p₁ = p₂ = 1, the modulo-4 branches merge seamlessly back into the original 3x+1 operation.
+*   **USB 2.0 (The Solar System — Generalized Nx+p):** By setting N₁ = N₂ = N and p₁ = p₂ = p, the system flawlessly replicates any standard symmetric Collatz-type mapping.
+*   **USB 3.0 (The Galaxy — The True ECF):** The ultimate, comprehensive architecture encompassing both the aforementioned symmetric baselines and the asymmetric configurations (where N₁ ≠ N₂ or p₁ ≠ p₂). By treating symmetric maps merely as localized subsets, this overarching framework unlocks the vast, uncharted computational universe of Chiral Non-Commutativity and topological phase transitions.
+
 
 ## 3. Chiral Non-Commutativity & Symmetry Breaking
 While symmetric baselines (like 3x+1 or 3x-1) deterministically converge, generating an asymmetric hybrid yields unbelievably counterintuitive results:
