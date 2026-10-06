@@ -6,9 +6,9 @@
 
 > **Collatzology** */kəˈlætsɒlədʒi/* (n.): The unified mathematical and computational study of generalized Collatz-like discrete dynamical systems. It transitions the 89-year-old 3x+1 problem from an isolated, path-dependent anomaly into a predictable, macroscopic topological architecture (The Extended Collatz Family).
 
-For decades, the mathematical community has treated generalized $Nx+p$ mappings as fragmented, unpredictable puzzles. **Collatzology** is the Grand Unified Theory for this domain. 
+For decades, the mathematical community has treated generalized Nx+p mappings as fragmented, unpredictable puzzles. **Collatzology** is the Grand Unified Theory for this domain. 
 
-This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines of the **Arithmetic Chiral Topodynamics (ACT)** framework. ACT serves as the foundational physical law of Collatzology, replacing stochastic guesswork with strict algebraic geometry, deterministic topological invariants ($\Delta'$), and machine-verified logic.
+This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines of the **Arithmetic Chiral Topodynamics (ACT)** framework. ACT serves as the foundational physical law of Collatzology, replacing stochastic guesswork with strict algebraic geometry, deterministic topological invariants (Δ'), and machine-verified logic.
 
 Included here is the **AACC Crucible Fuzzer**—a weaponized computational engine built to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF). 
 *(Note: AACC stands for **Absolute Asymptotic Convergence to a Cycle**, the fundamental macroscopic destiny this engine is built to test, verify, and mathematically enforce.)*
