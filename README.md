@@ -1,11 +1,17 @@
-# Collatzology & Arithmetic Chiral Topodynamics (ACT): Decoding Extended Collatz Dynamics
+# Collatzology & Arithmetic Chiral Topodynamics (ACT)
+**Decoding the Extended Collatz Dynamics via Universal Topological Invariants**
 
 **License:** MIT | **Core Architecture:** C++17 (Arbitrary-Precision & O(1) Memory)
 **Preprint:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21996041.svg)](https://doi.org/10.5281/zenodo.21996041)
 
-Welcome to the official repository for Collatzology and the Arithmetic Chiral Topodynamics (ACT) framework. This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines—collectively known as the **AACC Crucible Fuzzer**—used to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF).
+> **Collatzology** */kəˈlætsɒlədʒi/* (n.): The unified mathematical and computational study of generalized Collatz-like discrete dynamical systems. It transitions the 85-year-old 3x+1 problem from an isolated, path-dependent anomaly into a predictable, macroscopic topological architecture (The Extended Collatz Family).
 
-> **Note:** AACC stands for **Absolute Asymptotic Convergence to a Cycle**, the foundational conjecture this engine is built to test, verify, and mathematically enforce.
+For decades, the mathematical community has treated generalized $Nx+p$ mappings as fragmented, unpredictable puzzles. **Collatzology** is the Grand Unified Theory for this domain. 
+
+This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines of the **Arithmetic Chiral Topodynamics (ACT)** framework. ACT serves as the foundational physical law of Collatzology, replacing stochastic guesswork with strict algebraic geometry, deterministic topological invariants ($\Delta'$), and machine-verified logic.
+
+Included here is the **AACC Crucible Fuzzer**—a weaponized computational engine built to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF). 
+*(Note: AACC stands for **Absolute Asymptotic Convergence to a Cycle**, the fundamental macroscopic destiny this engine is built to test, verify, and mathematically enforce.)*
 
 ---
 
