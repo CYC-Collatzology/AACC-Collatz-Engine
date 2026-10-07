@@ -51,9 +51,9 @@ While symmetric baselines (like 3x+1 or 3x-1) deterministically converge, genera
 This empirical reality, where `ECF(A, B) ≠ ECF(B, A)`, strongly suggests the existence of a chiral non-commutative structure within discrete dynamical systems.
 
 ## 4. The Universal Topological Invariant (Δ')
-To formalize this mechanism, we derive a universal topological invariant, the **Net Drift Discriminant (Δ')**. 
 
-For generalized asymmetric ECF systems, the topological framework expands into a unified discriminant:
+To formalize this mechanism, we derive a universal topological invariant that governs all ECF systems, the **Net Drift Discriminant (Δ')**. 
+
 **Δ' = [ln√(|N₁ · N₂|) / ln 2] - ρ**  *(where quantized Lattice Gravity ρ ∈ {1, 2, 3})*
 
 
