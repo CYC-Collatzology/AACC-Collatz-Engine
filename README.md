@@ -1,7 +1,7 @@
 # Predicting Convergence and Divergence A Priori in Extended Collatz Mappings
 
 **License:** MIT | **Core Architecture:** C++17 (Arbitrary-Precision & O(1) Memory)
-**Preprint:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21996041.svg)](https://doi.org/10.5281/zenodo.21996041)
+**Preprint:** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21996041.svg)](https://doi.org/10.5281/zenodo.21996041)]
 
 *Can the macroscopic fate of a discrete dynamical system be mathematically predicted prior to any path-dependent computation?* 
 
