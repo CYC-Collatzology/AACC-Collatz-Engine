@@ -102,6 +102,7 @@ clang++ -O3 -std=c++17 -pthread AACC_Crucible_v5.4.cpp -lgmpxx -lgmp -o aacc_v5
 
 # Execute the Fuzzer
 ./aacc_v5
+``` 
 
 ## 9. No Supercomputer Required: The Pocket Fuzzer (Mobile Deployment)
 Traditional Collatz verification and massive trajectory fuzzing are notoriously elitist—they typically require heavy desktop setups, Linux environments, or university server clusters just to handle the exponential digit expansion.
