@@ -95,6 +95,7 @@ If a valid counter-example is found, the determinism of this framework must be r
 
 ## 8. Usage & Compilation
 **Requirements:** C++17 Compiler (GCC/Clang), GMP Library (`libgmp-dev`).
+
 ```bash
 # Compile with maximum optimization
 clang++ -O3 -std=c++17 -pthread AACC_Crucible_v5.4.cpp -lgmpxx -lgmp -o aacc_v5
@@ -109,7 +110,7 @@ Because the AACC Crucible is engineered with strict **O(1) memory complexity** a
 
 You can run this exact engine on a standard mid-range smartphone (e.g., Google Pixel 6) and flawlessly execute a 10-million-step macroscopic sweep on a 10,000-digit seed without crashing your device.
 
-**Zero Terminal Commands. One-Click Deploy:**
+*Zero Terminal Commands. One-Click Deploy:*
 If you want to stress-test the math but don't want to deal with bash commands, GCC installations, or Linux dependencies, you can deploy the Fuzzer directly from your phone in three steps:
 
 1. **Download a Mobile C++ IDE:** Install an app that supports the GMP library out-of-the-box (e.g., **CxxDroid** for Android).
