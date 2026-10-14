@@ -9,7 +9,7 @@ To answer this, we introduce **Arithmetic Chiral Topodynamics (ACT)**—an innov
 
 For decades, the mathematical community has treated the classic 3x+1 problem and generalized Nx+p mappings as fragmented, unpredictable puzzles, heavily reliant on step-by-step stochastic tracking. The ACT framework fundamentally shifts this paradigm. It transitions the study of Collatz-like mappings from path-dependent numerical tracking into a predictable, macroscopic topological architecture.
 
-This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines of the ACT framework. By replacing guesswork with strict algebraic geometry, the Net Drift Discriminant (Δ'), and machine-verified logic, ACT serves as the Grand Unified Theory for generalized discrete dynamical systems.
+This repository hosts the theoretical groundwork and the arbitrary-precision C++ engines of the ACT framework. By replacing guesswork with strict algebraic geometry, the Net Drift Discriminant (Δ'), and machine-verified logic, ACT serves as a unified topological framework for generalized discrete dynamical systems.
 
 Included here is the **AACC Crucible Fuzzer**—a weaponized computational engine built to simulate, fuzz, and definitively dissect the Extended Collatz Function (ECF). 
 *(Note: AACC stands for **Absolute Asymptotic Convergence to a Cycle**, the fundamental macroscopic limit this engine is built to test, verify, and mathematically enforce.)*
@@ -74,7 +74,7 @@ To formalize this mechanism, we derive a universal topological invariant that go
 ---
 
 ## 5. Formal Verification (Lean 4)
-The macroscopic flow conservation laws and the quantized lattice gravity (ρ ∈ {1, 2, 3}) derived within the ACT framework have been formally verified using the **Lean 4 theorem prover**. The absolute mathematical certainty of this algebraic routing mechanics is available in `ACT_Conservation.lean`.
+The modulo-4 chiral phase-shift identities, translational invariance, macroscopic flow conservation laws, quantized lattice gravity (ρ ∈ {1, 2, 3}), and the algebraic parity barrier (Δ'≠ 0) have been formally verified with zero axioms/sorries using the **Lean 4 theorem prover** (`ACT_Conservation.lean`).
 
 ## 6. The Crucible Fuzzer: Engineering Highlights
 The included C++ engine (`AACC_Crucible_v5.7.cpp`) is not a simple script; it is a hardened, arbitrary-precision Topodynamic Fuzzer designed to withstand extreme computational stress:
