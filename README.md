@@ -77,7 +77,7 @@ To formalize this mechanism, we derive a universal topological invariant that go
 The macroscopic flow conservation laws and the quantized lattice gravity (ρ ∈ {1, 2, 3}) derived within the ACT framework have been formally verified using the **Lean 4 theorem prover**. The absolute mathematical certainty of this algebraic routing mechanics is available in `ACT_Conservation.lean`.
 
 ## 6. The Crucible Fuzzer: Engineering Highlights
-The included C++ engine (`AACC_Crucible_v5.4.cpp`) is not a simple script; it is a hardened, arbitrary-precision Topodynamic Fuzzer designed to withstand extreme computational stress:
+The included C++ engine (`AACC_Crucible_v5.7.cpp`) is not a simple script; it is a hardened, arbitrary-precision Topodynamic Fuzzer designed to withstand extreme computational stress:
 * **O(1) Memory Anatomy Trace:** Utilizes Floyd's Tortoise and Hare algorithm to detect massive cycles without RAM exhaustion.
 * **Infinity Overload Shield:** Automatically prevents Out-Of-Memory (OOM) crashes during exponential divergence by evaluating bit-length velocity.
 * **Dynamic Evaporation Limit (Anti-Smuggling):** Adversarially defends against "fake theory violations." The engine dynamically calculates the absolute minimum steps required for a system to converge based on the combined digit mass of the seed and the lattice constants (p₁, p₂), actively overriding insufficient user-defined step limits.
@@ -98,7 +98,7 @@ If a valid counter-example is found, the determinism of this framework must be r
 
 ```bash
 # Compile with maximum optimization
-clang++ -O3 -std=c++17 -pthread AACC_Crucible_v5.4.cpp -lgmpxx -lgmp -o aacc_v5
+clang++ -O3 -std=c++17 -pthread AACC_Crucible_v5.7.cpp -lgmpxx -lgmp -o aacc_v5
 
 # Execute the Fuzzer
 ./aacc_v5
@@ -115,7 +115,7 @@ You can run this exact engine on a standard mid-range smartphone (e.g., Google P
 If you want to stress-test the math but don't want to deal with bash commands, GCC installations, or Linux dependencies, you can deploy the Fuzzer directly from your phone in three steps:
 
 1. **Download a Mobile C++ IDE:** Install an app that supports the GMP library out-of-the-box (e.g., **CxxDroid** for Android).
-2. **Copy & Paste:** Open the app and paste the entire `AACC_Crucible_v5.6.cpp` source code into the editor.
+2. **Copy & Paste:** Open the app and paste the entire `AACC_Crucible_v5.7.cpp` source code into the editor.
 3. **Press Run:** Hit the compile/play button. The interactive UI will launch immediately.
 
 Take the deterministic universe with you. Hunt for anomalies on your commute, and let your pocket device challenge a century-old mathematical mystery.
